@@ -1,0 +1,14 @@
+site_name: Torrust Documentation
+site_url: https://docs.torrust.com/
+site_author: Torrust Developers
+site_description: Torrust Documentation
+
+repo_name: torrust/docs
+repo_url: https://github.com/torrust/docs
+
+theme:
+  palette:
+    primary: red
+    scheme: slate
+    accent: red
+  name: material
