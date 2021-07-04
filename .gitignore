@@ -1,1 +1,5 @@
+# Mac OS file
 .DS_Store
+
+# IDEA workspace
+.idea
