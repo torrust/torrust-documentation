@@ -1,8 +1,7 @@
 # About
 
 ## Introduction
-Torrust is an open source BitTorrent tracker developed using the Rust language. 
-With Torrust, you can upload torrents and supply additional information (such as a description and images) for other users to view and download.
+Torrust is an open source project that brings you all the tools you need to host your own (private) online torrent database.
 
 ## Project structure
 Torrust is split up into three separate applications.
@@ -13,13 +12,14 @@ Torrust is split up into three separate applications.
 
 ## Features
 - [X] Email / Password authentication
-- [X] E-mail verification
+- [X] Self-hosted Private Tracker
 - [X] Torrent Uploading / Downloading
 - [X] No external services needed
 - [X] Completely written in Rust
 
 ## Screenshots
-![Web UI Category page](img/web-ui.png){ align=center }
+![Web UI Category page](img/web-ui.png)
+![Web UI Torrent page](img/web-ui-torrent.png)
 
 ## Contributing
 Please report any bugs you find to our issue tracker. Ideas and feature requests are welcome as well!

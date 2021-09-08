@@ -1,7 +1,6 @@
 # Torrust Tracker
 
-[![Torrust - torrust-website-backend](https://img.shields.io/static/v1?label=Torrust&message=torrust-tracker&color=blue&logo=github)](https://github.com/Torrust/torrust-website-backend)
-[![Build Status](https://app.travis-ci.com/torrust/torrust-tracker.svg?branch=master)](https://app.travis-ci.com/torrust/torrust-tracker)
+[![Torrust - torrust-website-backend](https://img.shields.io/static/v1?label=Torrust&message=torrust-tracker&color=blue&logo=github)](https://github.com/torrust/torrust-website-backend)
 
 __Torrust Tracker__ is a feature rich UDP based torrent tracker built with Rust.
 

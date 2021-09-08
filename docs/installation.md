@@ -10,17 +10,7 @@ This guide walks you through how to install Torrust on a Linux system. Make sure
 - [Node.js](https://nodejs.org/en/) - A JavaScript runtime
 - [NPM](https://www.npmjs.com/) - Package manager for Node/JavaScript
 
-
-## Cloning repositories
-To get the code of all the applications, execute the following commands.
-These will download the repositories to the directory you're currently in.
-```bash
-git clone https://github.com/torrust/torrust-web-frontend
-git clone https://github.com/torrust/torrust-web-backend
-git clone https://github.com/torrust/torrust-tracker
-```
-
-## Setting up the Torrust Web Frontend
+## Setting up Nginx
 ### Installing Nginx
 The frontend can't run on it's own and needs and external webserver like apache or nginx.
 In this guide we will be using nginx, so lets install that first.
@@ -36,9 +26,9 @@ Create a file in `/etc/nginx/sites-available/` called `torrust.conf` with the fo
 ```nginx
 server {
     listen 80;
-    server_name torrust.dutchbits.nl;
+    server_name torrust.dutchbits.nl; # set your own domain name here!!
 
-    root /opt/torrust/torrust-web/dist/;
+    root /opt/torrust/torrust-web-frontend/dist/;
 
     location / {
         try_files $uri $uri/ /index.html;
@@ -54,31 +44,22 @@ Enable the configuration by making a symlink to the config in the `sites-enabled
 ln -s /etc/nginx/sites-available/torrust.conf /etc/nginx/sites-enabled/
 ```
 
-After this you can test the validity of the config by executing `nginx -t`, 
+After this you can test the validity of the config by executing `nginx -t`,
 if the config is valid you can safely reload Nginx to make the new configuration active.
 ```bash
 systemctl reload nginx
 ```
 
-### Building the Frontend
-Next up is building the frontend, we'll first install all of the dependecies.
+## Setting up the Torrust Tracker
+### Getting the sources
+If you prefer to just download the compiled binaries, you can get the [latest release here](https://github.com/torrust/torrust-tracker/releases). Else:
+
+While in `/opt/torrust`:
 ```bash
-cd /opt/torrust-web-frontend
-npm i
+git clone https://github.com/torrust/torrust-tracker.git
 ```
 
-Edit the `.env.production` file to look like this, and after that we can start the build.
-```env
-VUE_APP_API_BASE_URL=/api
-```
-```bash
-npm run build
-```
-After this command succesfully completed a built version of the frontend is in the `dist` folder.
-These files are served by Nginx as specified by the `root` directive in the created config.
-
-## Setting up Torrust Tracker
-### Building
+### Building (Skip if you downloaded the binaries)
 Build the application by running the following. The binary can be found in `target/release/` after completion.
 ```bash
 cd /opt/torrust/torrust-tracker
@@ -96,7 +77,7 @@ torrust_api = "<your randomly generated string>"
 ```
 
 ### Running the Tracker
-After building and configuring the Tracker it's ready to be run. 
+After building and configuring the Tracker it's ready to be run.
 It's recommended to either run it in a screen / tmux session or to create a systemd service for it.
 
 ```bash
@@ -106,7 +87,15 @@ tmux # open a new tmux session
 > Press `CTRL+B D` to exit the tmux session without killing it.
 
 ## Setting up the Torrust Backend
-### Building
+### Getting the sources
+If you prefer to just download the compiled binaries, you can get the [latest release here](https://github.com/torrust/torrust-web-backend/releases). Else:
+
+While in `/opt/torrust`:
+```bash
+git clone https://github.com/torrust/torrust-web-backend.git
+```
+
+### Building (Skip if you downloaded the binaries)
 Before building we have to create the SQLite database and run the migrations. Install the `sqlx-cli` and setup the database.
 ```bash
 cd /opt/torrust/torrust-web-backend
@@ -151,3 +140,29 @@ tmux # open a new tmux session
 ./target/release/torrust-web-backend
 ```
 > Press `CTRL+B D` to exit the tmux session without killing it.
+
+## Setting up the Torrust Web Frontend
+## Getting the sources
+```bash
+git clone https://github.com/torrust/torrust-web-frontend
+```
+
+### Building the Frontend
+Next up is building the frontend, we'll first install all of the dependecies.
+
+While in `/opt/torrust`:
+```bash
+cd /opt/torrust-web-frontend
+npm i
+```
+
+Edit the `.env.production` file to look like this, and after that we can start the build.
+```env
+VUE_APP_API_BASE_URL=/api
+```
+```bash
+npm run build
+```
+After this command succesfully completed a built version of the frontend is in the `dist` folder.
+These files are served by Nginx as specified by the `root` directive in the created config.
+

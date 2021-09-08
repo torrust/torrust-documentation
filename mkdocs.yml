@@ -1,10 +1,10 @@
 site_name: Torrust Documentation
-site_url: https://docs.torrust.com/
+site_url: https://torrust.com/
 site_author: Torrust Developers
 site_description: Torrust Documentation
 
 repo_name: torrust/docs
-repo_url: https://github.com/torrust/docs
+repo_url: https://github.com/torrust/torrust-documentation
 
 theme:
   palette:
@@ -16,16 +16,6 @@ theme:
 nav:
   - Introduction: index.md
   - 'Installing Torrust': installation.md
-  - 'Torrust Web Backend':
-    - About: torrust-web-backend/about.md
-    - Usage: torrust-web-backend/usage.md
-    - Building: torrust-web-backend/build.md
-    - Config: torrust-web-backend/config.md
-    - API: 
-      - Overview: torrust-web-backend/api.md
-      - 'User routes': torrust-web-backend/user_api.md
-      - 'Torrent routes': torrust-web-backend/torrent_api.md
-      - 'Category routes': torrust-web-backend/category_api.md
   - 'Torrust Tracker':
     - About: torrust-tracker/about.md
     - Usage: torrust-tracker/usage.md
@@ -33,6 +23,16 @@ nav:
     - Config: torrust-tracker/config.md
     - 'Tracking Modes': torrust-tracker/tracking_modes.md
     - API: torrust-tracker/api.md
+  - 'Torrust Web Backend':
+    - About: torrust-web-backend/about.md
+    - Usage: torrust-web-backend/usage.md
+    - Building: torrust-web-backend/build.md
+    - Config: torrust-web-backend/config.md
+    - API:
+      - Overview: torrust-web-backend/api.md
+      - 'User routes': torrust-web-backend/user_api.md
+      - 'Torrent routes': torrust-web-backend/torrent_api.md
+      - 'Category routes': torrust-web-backend/category_api.md
   - 'Torrust Web Frontend':
     - About: torrust-web-frontend/about.md
 
