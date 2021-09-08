@@ -12,3 +12,32 @@ theme:
     scheme: slate
     accent: red
   name: material
+
+nav:
+  - Introduction: about.md
+  - 'Installing Torrust': installation.md
+  - 'Torrust Web Backend':
+    - About: torrust-web-backend/about.md
+    - Usage: torrust-web-backend/usage.md
+    - Building: torrust-web-backend/build.md
+    - Config: torrust-web-backend/config.md
+    - API: 
+      - Overview: torrust-web-backend/api.md
+      - 'User routes': torrust-web-backend/user_api.md
+      - 'Torrent routes': torrust-web-backend/torrent_api.md
+      - 'Category routes': torrust-web-backend/category_api.md
+  - 'Torrust Tracker':
+    - About: torrust-tracker/about.md
+    - Usage: torrust-tracker/usage.md
+    - Building: torrust-tracker/build.md
+    - Config: torrust-tracker/config.md
+    - 'Tracking Modes': torrust-tracker/tracking_modes.md
+    - API: torrust-tracker/api.md
+  - 'Torrust Web Frontend':
+    - About: torrust-web-frontend/about.md
+
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
