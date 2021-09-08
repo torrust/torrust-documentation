@@ -14,7 +14,7 @@ theme:
   name: material
 
 nav:
-  - Introduction: about.md
+  - Introduction: index.md
   - 'Installing Torrust': installation.md
   - 'Torrust Web Backend':
     - About: torrust-web-backend/about.md
