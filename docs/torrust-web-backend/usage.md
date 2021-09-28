@@ -3,16 +3,21 @@ The easiest way is to get built binaries from [Releases](https://github.com/torr
 but building from sources is also possible:
 
 ```bash
-git clone https://github.com/torrust/torrust.git
-cd torrust
+git clone https://github.com/torrust/torrust-web-backend.git
+cd torrust-web-backend
 cargo build --release
 ```
 
-__Notice:__ Skip the first step if you've downloaded the binaries directly. 
+__Notice:__ Use 1. (Binaries) if you've downloaded the binaries directly. 
 
-1. After building __Torrust__, navigate to the folder.
+1. (Source) After building __Torrust__, navigate to the folder.
 ```bash
-cd torrust/target
+cd torrust-web-backend/target
+```
+
+1. (Binaries)
+```bash
+cd torrust-web-backend
 ```
 
 2. Create a file called `config.toml` with the following contents and change the [configuration](https://torrust.github.io/torrust-tracker/CONFIG.html) according to your liking.
