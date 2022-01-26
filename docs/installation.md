@@ -10,6 +10,48 @@ This guide walks you through how to install Torrust on a Linux system. Make sure
 - [Node.js](https://nodejs.org/en/) - A JavaScript runtime
 - [NPM](https://www.npmjs.com/) - Package manager for Node/JavaScript
 
+
+## Setting up the Torrust Tracker
+### Getting Started
+You can get the latest binaries from [releases](https://github.com/torrust/torrust-tracker/releases) or follow the install from scratch instructions below.
+
+### Install From Scratch
+1. Clone the repo.
+```bash
+git clone https://github.com/torrust/torrust-tracker.git
+cd torrust-tracker
+```
+
+2. Build the source code.
+```bash
+cargo build --release
+```
+
+3. Copy binaries: `torrust-tracker/target/torrust-tracker` to a new folder.
+
+### Usage
+1. Navigate to the folder you put the torrust-tracker binaries in.
+
+
+2. Run the torrust-tracker once to create the `config.toml` file:
+```bash
+./torrust-tracker
+```
+
+
+3. Edit the newly created config.toml file in the same folder as your torrust-tracker binaries according to your liking. See [configuration documentation](https://torrust.com/torrust-tracker/config/).
+
+
+4. Run the torrust-tracker again:
+```bash
+./torrust-tracker
+```
+
+### Tracker URL
+Your tracker will be `udp://tracker-ip:port/announce` or `http://tracker-ip:port/announce` depending on your tracker mode.
+In private mode, tracker keys are added after the tracker URL like: `https://tracker-ip:port/announce/tracker-key`.
+
+
 ## Setting up the Torrust Index
 ### Installing Nginx
 The frontend can't run on it's own and needs and external webserver like apache or nginx.
