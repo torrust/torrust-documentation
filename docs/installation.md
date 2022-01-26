@@ -10,7 +10,7 @@ This guide walks you through how to install Torrust on a Linux system. Make sure
 - [Node.js](https://nodejs.org/en/) - A JavaScript runtime
 - [NPM](https://www.npmjs.com/) - Package manager for Node/JavaScript
 
-## Setting up Nginx
+## Setting up the Torrust Index
 ### Installing Nginx
 The frontend can't run on it's own and needs and external webserver like apache or nginx.
 In this guide we will be using nginx, so lets install that first.
@@ -25,17 +25,32 @@ _See [Nginx installation tutorial](https://www.nginx.com/resources/wiki/start/to
 Create a file in `/etc/nginx/sites-available/` called `torrust.conf` with the following contents:
 ```nginx
 server {
-    listen 80;
-    server_name torrust.dutchbits.nl; # set your own domain name here!!
+    if ($host = torrust.dutchbits.nl) {
+        return 301 https://$host$request_uri;
+    }
 
-    root /opt/torrust/torrust-web-frontend/dist/;
+    listen 80;
+    server_name torrust.dutchbits.nl;
+
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name torrust.dutchbits.nl;
+    ssl_certificate /etc/letsencrypt/live/torrust.dutchbits.nl/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/torrust.dutchbits.nl/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+    root /opt/torrust/torrust/frontend/dist/;
 
     location / {
         try_files $uri $uri/ /index.html;
     }
 
     location /api/ {
-        proxy_pass http://localhost:8080/;
+        proxy_pass http://localhost:3000/;
     }
 }
 ```
@@ -50,82 +65,54 @@ if the config is valid you can safely reload Nginx to make the new configuration
 systemctl reload nginx
 ```
 
-## Setting up the Torrust Tracker
-### Getting the sources
-If you prefer to just download the compiled binaries, you can get the [latest release here](https://github.com/torrust/torrust-tracker/releases). Else:
-
-While in `/opt/torrust`:
+### Getting the Torrust index sources
+Create the torrust install directory and clone the repo:
 ```bash
-git clone https://github.com/torrust/torrust-tracker.git
+mkdir /opt/torrust
+cd /opt/torrust
+git clone https://github.com/torrust/torrust.git
 ```
 
-### Building (Skip if you downloaded the binaries)
-Build the application by running the following. The binary can be found in `target/release/` after completion.
+### Building the Backend
+First change to the backend directory and create a file called: '.env':
 ```bash
-cd /opt/torrust/torrust-tracker
-cargo build --release
+cd /opt/torrust/torrust/backend
+echo "DATABASE_URL=sqlite://data.db?mode=rwc" > .env
 ```
 
-### Configuration
-Edit the `configuration.toml` and change at least the following keys.
-
-- `external_ip`: Set this to the external IP of the server.
-- `[http.access_tokens]`: Add an entry for the `torrust_backend` with a long randomly generated key.
-```toml
-[http.access_tokens]
-torrust_api = "<your randomly generated string>"
-```
-
-### Running the Tracker
-After building and configuring the Tracker it's ready to be run.
-It's recommended to either run it in a screen / tmux session or to create a systemd service for it.
-
+Then we have to create the SQLite database and run the migrations. Install the `sqlx-cli` and setup the database.
 ```bash
-tmux # open a new tmux session
-./target/release/torrust-tracker -c configuration.toml
-```
-> Press `CTRL+B D` to exit the tmux session without killing it.
-
-## Setting up the Torrust Backend
-### Getting the sources
-If you prefer to just download the compiled binaries, you can get the [latest release here](https://github.com/torrust/torrust-web-backend/releases). Else:
-
-While in `/opt/torrust`:
-```bash
-git clone https://github.com/torrust/torrust-web-backend.git
-```
-
-### Building (Skip if you downloaded the binaries)
-Before building we have to create the SQLite database and run the migrations. Install the `sqlx-cli` and setup the database.
-```bash
-cd /opt/torrust/torrust-web-backend
 cargo install sqlx-cli
 sqlx db setup
 ```
 
-After this build the backend just like you built the tracker:
+After this build the backend:
 ```bash
 cargo build --release
 ```
 
 ### Configuration
-Edit the `config.toml` and change at least the following keys.
+Run the backend once to generate the config.toml file:
+```bash
+cd /opt/torrust/torrust/backend
+./target/release/torrust
+```
+
+Then edit the `config.toml` and change at least the following keys:
+
+```bash
+nano config.toml
+```
 
 `[tracker]`
 
-- `url`: Set to a connection string for the tracker.
-- `token`: Set this to the randomly generated key for the `torrust_api` when setting up the Tracker.
+- `url`: Set to a connection string for the tracker. Eg: `udp://torrust.com:6969/announce/`. 
+- `api_url`: Set to tracker api URL. Default: `http://localhost:1212`.
+- `token`: Set this to the randomly generated key for the `torrust_api` when setting up the tracker.
 
 `[net]`
 
-- `port`: Set to `8080` for this guide. (If you choose another port make sure to change the Nginx config aswell)
-- `base_url`: The URL the backend is accesible to from the outside, should be your domain appended by `/api`, ex: `https://torrust.dutchbits.nl/api`.
-
-`[mail]`
-
-- Change all fields to match the details of the SMTP provider of your choice.
-
-Not sure what to use? Both [SendGrid](https://sendgrid.com/) and [Sendinblue](https://www.sendinblue.com/) have a generous free tier.
+- `port`: Set to `3000` for this guide. (If you choose another port make sure to change the Nginx config as well)
 
 `[auth]`
 
@@ -133,36 +120,27 @@ Not sure what to use? Both [SendGrid](https://sendgrid.com/) and [Sendinblue](ht
 
 ### Running the Backend
 With the changes to the configuration the backend should be completely ready to be run.
-Just like the Tracker it should be run in a screen / tmux session or as a systemd service.
+Just like the tracker it should be run in a screen / tmux session or as a systemd service.
 
 ```bash
 tmux # open a new tmux session
-./target/release/torrust-web-backend
+cd /opt/torrust/torrust/backend
+./target/release/torrust
 ```
 > Press `CTRL+B D` to exit the tmux session without killing it.
 
-## Setting up the Torrust Web Frontend
-## Getting the sources
-```bash
-git clone https://github.com/torrust/torrust-web-frontend
-```
-
 ### Building the Frontend
-Next up is building the frontend, we'll first install all of the dependecies.
-
-While in `/opt/torrust`:
+Next up is building the frontend. Start with creating a file called '.env':
 ```bash
-cd /opt/torrust-web-frontend
+cd /opt/torrust/torrust/frontend
+echo "VITE_API_BASE_URL=https://torrust.dutchbits.nl/api" > .env
+```
+
+Build the frontend:
+```bash
 npm i
-```
-
-Edit the `.env.production` file to look like this, and after that we can start the build.
-```env
-VUE_APP_API_BASE_URL=/api
-```
-```bash
 npm run build
 ```
-After this command succesfully completed a built version of the frontend is in the `dist` folder.
+After this command successfully completed a built version of the frontend is in the `dist` folder.
 These files are served by Nginx as specified by the `root` directive in the created config.
 
