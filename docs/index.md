@@ -1,25 +1,27 @@
 # About
 
 ## Introduction
-Torrust is an open source project that brings you all the tools you need to host your own (private) online torrent database.
+Torrust is an open source project that brings you all the tools you need to host your own (private) BitTorrent tracker and online torrent index.
 
 ## Project structure
-Torrust is split up into three separate applications.
+Torrust is split up into two separate applications.
 
-- [__Torrust Backend__](https://github.com/torrust/torrust-web-backend): A REST API written in Rust with the Actix web framework that acts as a backend for the Torrust Frontend.
-- [__Torrust Frontend__](https://github.com/torrust/torrust-web-frontend): A Vue application where torrents can be uploaded and downloaded.
-- [__Torrust Tracker__](https://github.com/torrust/torrust-tracker): A UDP based torrent tracker built with Rust.
+- [__Torrust Tracker__](https://github.com/torrust/torrust-tracker): A lightweight but incredibly powerful and feature-rich (private) BitTorrent Tracker.
+- [__Torrust Index__](https://github.com/torrust/torrust): A torrent indexing website that depends on the Torrust tracker.
 
 ## Features
-- [X] Email / Password authentication
-- [X] Self-hosted Private Tracker
+- [X] Email / Password authentication (optional email verification)
+- [X] Self-hosted BitTorrent tracker with Private and Whitelist support and a built-in API 
 - [X] Torrent Uploading / Downloading
 - [X] No external services needed
 - [X] Completely written in Rust
 
 ## Screenshots
-![Web UI Category page](img/web-ui.png)
-![Web UI Torrent page](img/web-ui-torrent.png)
+![Web UI Sign Up page](img/signup.png)
+![Web UI Popular page](img/popular.png)
+![Web UI Torrent page](img/torrent.png)
+![Web UI Upload page](img/upload.png)
+![Web UI Settings page](img/settings.png)
 
 ## Contributing
 Please report any bugs you find to our issue tracker. Ideas and feature requests are welcome as well!
