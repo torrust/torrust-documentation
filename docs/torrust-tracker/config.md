@@ -12,13 +12,13 @@ Torrust Tracker's configuration is a simple TOML file. If no TOML file is found,
 | cleanup_interval | OPTIONAL | Seconds until inactive peers/torrents are removed. | Interval in seconds.                              | 600       |
 | external_ip      | OPTIONAL | Needs to be set if announcing from local network. | IP like: `100.69.420.117`                         | EMPTY     |
 
-### UDP Tracker Section
+### UDP Tracker
 | [udp_tracker]     | REQUIRED |                                       | Values                  | Default        |
 |-------------------|----------|---------------------------------------|-------------------------|----------------|
 | bind_address      | REQUIRED | Bind address + port.                  | Example: `0.0.0.0:6969` | `0.0.0.0:6969` |
 | announce_interval | REQUIRED | Interval that peers will announce in. | Interval in seconds.    | 120            |
 
-### HTTP Tracker Section
+### HTTP Tracker
 | [http_tracker]    | OPTIONAL |                                                             | Values                  | Default        |
 |-------------------|----------|-------------------------------------------------------------|-------------------------|----------------|
 | enabled           | REQUIRED | If false, UDP tracker will run.                             | true or false           | false          |
@@ -28,7 +28,7 @@ Torrust Tracker's configuration is a simple TOML file. If no TOML file is found,
 | ssl_cert_path     | OPTIONAL | Path to SSL cert.                                           | Any path.               | EMPTY          |
 | ssl_key_path      | OPTIONAL | Path to SSL cert key.                                       | Any path.               | EMPTY          |
 
-### HTTP API Section
+### HTTP API
 | [http_api]   | OPTIONAL |                       | Values                    | Default          |
 |--------------|----------|-----------------------|---------------------------|------------------|
 | enabled      | REQUIRED | Enables built-in API. | true or false             | true             |
