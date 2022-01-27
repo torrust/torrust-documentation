@@ -3,14 +3,14 @@ site_url: https://torrust.com/
 site_author: Torrust Developers
 site_description: Torrust Documentation
 
-repo_name: torrust/docs
+repo_name: torrust/torrust-documentation
 repo_url: https://github.com/torrust/torrust-documentation
 
 theme:
   palette:
-    primary: red
+    primary: blue
     scheme: slate
-    accent: red
+    accent: blue
   name: material
 
 nav:
