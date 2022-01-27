@@ -179,7 +179,7 @@ cd /opt/torrust/torrust/backend
 Next up is building the frontend. Start with creating a file called '.env':
 ```bash
 cd /opt/torrust/torrust/frontend
-echo "VITE_API_BASE_URL=https://torrust.dutchbits.nl/api" > .env
+echo "VITE_API_BASE_URL=YOUR_BACKEND_URL EG:https://torrust.dutchbits.nl/api" > .env
 ```
 
 Build the frontend:

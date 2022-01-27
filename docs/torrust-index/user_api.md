@@ -57,8 +57,6 @@ Login into an existing account.
 Email verification handler. <br>
 On register an email is sent to the email address of the registered account with a link to this route to verify their email address.
 
-![email verification mail](images/email-verification.png)
-
 `Example: GET /user/verify/<token>`
 #### Response:
 - On success: Status `200`.
@@ -68,6 +66,28 @@ Email verified, you can close this page.
 - On error: Error message as a string.
 ```html
 Token invalid.
+```
+
+---
+
+### `DELETE /user/ban/<username>`
+Ban users.
+
+`Example: DELETE /user/verify/<username>`
+#### Response:
+- On success: Status `200`.
+
+```json
+{
+  "message": "User successfully banned!"
+}
+```
+- On error: Error message as a string.
+
+```json
+{
+  "error": "Could not find user."
+}
 ```
 
 ---

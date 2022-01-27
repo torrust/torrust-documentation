@@ -1,6 +1,6 @@
 # Torrust Tracker REST API
 
-## Endpoints in API (v1)
+## Endpoints in API (v2)
 __Notice:__
 This API should not be exposed directly to the internet, it is intended for internal use only. 
 
