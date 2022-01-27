@@ -17,7 +17,7 @@ Torrents can be added to a whitelist using the REST API.
 `mode: private`
 
 Private tracking requires all peers to be authenticated.
-Peers can authenticate themselves using a key: `udp://torrust-tracker.com/:key`.
+Peers can authenticate themselves using a key: `https://torrust-tracker.com/announce/<key>`.
 Keys can be created using the REST API.
 
 ## PrivateListed Mode
