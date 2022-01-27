@@ -4,13 +4,13 @@ Torrust Tracker's configuration is a simple TOML file. If no TOML file is found,
 ## Configuration
 
 ### Root Level
-| Root             | REQUIRED |                                                    | Values                                            | Default   |
-|------------------|----------|----------------------------------------------------|---------------------------------------------------|-----------|
-| log_level        | OPTIONAL | Log level.                                         | `off`, `info` or `trace`                          | `info`    |
-| mode             | REQUIRED | Tracker mode.                                      | `public`, `listed`, `private` or `private_listed` | `public`  |
-| db_path          | REQUIRED | SQLite DB Path.                                    | Any path.                                         | `data.db` |
+| Root             | REQUIRED |                                                  | Values                                            | Default   |
+|------------------|----------|--------------------------------------------------|---------------------------------------------------|-----------|
+| log_level        | OPTIONAL | Log level.                                       | `off`, `info` or `trace`                          | `info`    |
+| mode             | REQUIRED | [Tracker mode](/torrust-tracker/tracking_modes/).                    | `public`, `listed`, `private` or `private_listed` | `public`  |
+| db_path          | REQUIRED | SQLite DB Path.                                  | Any path.                                         | `data.db` |
 | cleanup_interval | OPTIONAL | Seconds until inactive peers/torrents are removed. | Interval in seconds.                              | 600       |
-| external_ip      | OPTIONAL | Needs to be set if announcing from local network.  | IP like: `100.69.420.117`                         | EMPTY     |
+| external_ip      | OPTIONAL | Needs to be set if announcing from local network. | IP like: `100.69.420.117`                         | EMPTY     |
 
 ### UDP Tracker Section
 | [udp_tracker]     | REQUIRED |                                       | Values                  | Default        |
