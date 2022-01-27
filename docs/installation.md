@@ -1,4 +1,6 @@
 # Installation
+__NOTE: The Torrust tracker works independently, but if you want to host the torrent index, you need to connect to a Torrust tracker.__
+
 This guide walks you through how to install Torrust on a Linux system. Make sure you have the prerequisites installed, before going to the next steps.
 > We'll be installing Torrust in `/opt/torrust`, change the paths in the steps according to your own install location.
 
@@ -16,8 +18,10 @@ This guide walks you through how to install Torrust on a Linux system. Make sure
 You can get the latest binaries from [releases](https://github.com/torrust/torrust-tracker/releases) or follow the install from scratch instructions below.
 
 ### Install From Scratch
-1. Clone the repo.
+1. Create the torrust install directory (if you haven't already) and clone the repo:
 ```bash
+mkdir /opt/torrust
+cd /opt/torrust
 git clone https://github.com/torrust/torrust-tracker.git
 cd torrust-tracker
 ```
@@ -108,7 +112,7 @@ systemctl reload nginx
 ```
 
 ### Getting the Torrust index sources
-Create the torrust install directory and clone the repo:
+Create the torrust install directory (if you haven't already) and clone the repo:
 ```bash
 mkdir /opt/torrust
 cd /opt/torrust
