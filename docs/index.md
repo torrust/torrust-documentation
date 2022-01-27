@@ -4,7 +4,7 @@
 Torrust is an open source project that brings you all the tools you need to host your own (private) BitTorrent tracker and online torrent index.
 
 ## How to install
-Follow the [installation instructions](/installation/).
+Follow the [installation instructions](/torrust-documentation/installation/).
 
 ## Project structure
 Torrust is split up into two separate applications.
