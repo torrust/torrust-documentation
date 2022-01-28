@@ -11,10 +11,10 @@ Torrust is split up into two separate applications.
 
 # Installation
 
-## Torrust web + tracker
+## Torrust index + tracker
 Please follow our [guide](https://torrust.github.io/torrust-documentation/installation/).
 
-## Torrust Documentation site
+## Torrust Documentation Site
 ### Prerequisites (installed)
 
 - [Python](https://www.python.org/)
@@ -27,7 +27,7 @@ Please follow our [guide](https://torrust.github.io/torrust-documentation/instal
 Clone repo:
 
 ```bash
-git clone https://github.com/torrust/docs.git
+git clone https://github.com/torrust-documentation.git
 ```
 
 # Usage
