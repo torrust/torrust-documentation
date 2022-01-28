@@ -6,8 +6,8 @@ Torrust is an open source project that brings you all the tools you need to host
 ### Project structure
 Torrust is split up into two separate applications.
 
-- [__Torrust Tracker__](https://github.com/torrust/torrust-tracker): A torrent indexing website that depends on the Torrust tracker.
-- [__Torrust Index__](https://github.com/torrust/torrust): A lightweight but incredibly powerful and feature-rich (private) BitTorrent Tracker.
+- [__Torrust Tracker__](https://github.com/torrust/torrust-tracker): A lightweight but incredibly powerful and feature-rich (private) BitTorrent Tracker.
+- [__Torrust Index__](https://github.com/torrust/torrust): A torrent indexing website that depends on the Torrust tracker.
 
 # Installation
 
