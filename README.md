@@ -27,7 +27,7 @@ Please follow our [guide](https://torrust.github.io/torrust-documentation/instal
 Clone repo:
 
 ```bash
-git clone https://github.com/torrust-documentation.git
+git clone https://github.com/torrust/torrust-documentation.git
 ```
 
 # Usage
