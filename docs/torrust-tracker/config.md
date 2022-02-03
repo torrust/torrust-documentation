@@ -22,9 +22,10 @@ Torrust Tracker's configuration is a simple TOML file. If no TOML file is found,
 | [http_tracker]    | OPTIONAL |                                                             | Values                  | Default        |
 |-------------------|----------|-------------------------------------------------------------|-------------------------|----------------|
 | enabled           | REQUIRED | If false, UDP tracker will run.                             | true or false           | false          |
+| on_reverse_proxy  | REQUIRED | Bind address + port.                                        | Example: `0.0.0.0:7878` | `0.0.0.0:7878` |
 | bind_address      | REQUIRED | Bind address + port.                                        | Example: `0.0.0.0:7878` | `0.0.0.0:7878` |
 | announce_interval | REQUIRED | Interval that peers will announce in.                       | Interval in seconds.    | 120            |
-| ssl_enabled       | OPTIONAL | Enable SSL or not. HIGHLY RECOMMENDED for private trackers. | true or false           | false          |
+| ssl_enabled       | REQUIRED | Enable SSL or not. HIGHLY RECOMMENDED for private trackers. | true or false           | false          |
 | ssl_cert_path     | OPTIONAL | Path to SSL cert.                                           | Any path.               | EMPTY          |
 | ssl_key_path      | OPTIONAL | Path to SSL cert key.                                       | Any path.               | EMPTY          |
 
@@ -41,18 +42,19 @@ Torrust Tracker's configuration is a simple TOML file. If no TOML file is found,
 ## Sample Configuration
 ```toml
 log_level = "trace"
-mode = "private"
+mode = "public"
 db_path = "data.db"
 cleanup_interval = 600
-external_ip = "148.420.69.117"
+external_ip = "YOUR_EXTERNAL_IP"
 
 [udp_tracker]
 bind_address = "0.0.0.0:6969"
 announce_interval = 120
 
 [http_tracker]
-enabled = false
-bind_address = "0.0.0.0:7878"
+enabled = true
+bind_address = "0.0.0.0:6969"
+on_reverse_proxy = false
 announce_interval = 120
 ssl_enabled = false
 ssl_cert_path = ""
