@@ -22,7 +22,7 @@ Torrust Tracker's configuration is a simple TOML file. If no TOML file is found,
 | [http_tracker]    | OPTIONAL |                                                             | Values                  | Default        |
 |-------------------|----------|-------------------------------------------------------------|-------------------------|----------------|
 | enabled           | REQUIRED | If false, UDP tracker will run.                             | true or false           | false          |
-| on_reverse_proxy  | REQUIRED | Bind address + port.                                        | Example: `0.0.0.0:7878` | `0.0.0.0:7878` |
+| on_reverse_proxy  | REQUIRED | Use 'x-forwarded-for' header if set to true.                | true or false.          | false          |
 | bind_address      | REQUIRED | Bind address + port.                                        | Example: `0.0.0.0:7878` | `0.0.0.0:7878` |
 | announce_interval | REQUIRED | Interval that peers will announce in.                       | Interval in seconds.    | 120            |
 | ssl_enabled       | REQUIRED | Enable SSL or not. HIGHLY RECOMMENDED for private trackers. | true or false           | false          |
