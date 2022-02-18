@@ -29,3 +29,18 @@ The body of an error _should_ always look like this:
   "error": "<error message>"
 }
 ```
+
+## Example using [curl](https://curl.se/)
+Here's an example of uploading a torrent over the API.
+
+```
+curl -X POST 'http://localhost:3000/torrent/upload' \
+-H 'Content-Type: multipart/form-data' \
+-H 'Authorization: Bearer TOKENHERE' \
+-F 'torrent=@"/path/to/your.torrent";type=application/x-bittorrent' \
+-F 'title="TITLE"' \
+-F 'description="DESCRIPTION"' \
+-F 'category="CATEGORY"'
+```
+
+
