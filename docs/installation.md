@@ -216,3 +216,45 @@ if the config is valid you can safely reload Nginx to make the new configuration
 ```bash
 sudo service nginx restart
 ```
+### Systemd examples
+You'll need to create two service files:  
+`/etc/systemd/system/torrust.service`  
+`/etc/systemd/system/torrust-tracker.service`
+
+Tracker:
+
+```
+[Unit]
+After=network.service
+Description="torrust-tracker"
+
+[Service]
+WorkingDirectory=/opt/torrust/torrust-tracker
+ExecStart=/opt/torrust/torrust-tracker/target/release/torrust-tracker
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Index:
+
+```
+[Unit]
+After=network.service
+Description="torrust"
+
+[Service]
+WorkingDirectory=/opt/torrust/torrust/backend
+ExecStart=/opt/torrust/torrust/backend/target/release/torrust
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Enable both services via `systemctl enable torrust`, `systemctl enable torrust-tracker`.
+Now you manage them just like other services: `service torrust start|stop|restart` etc.  
+Both will log directly to syslog (`/var/log/syslog`) by default.
