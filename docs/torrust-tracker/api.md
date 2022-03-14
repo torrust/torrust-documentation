@@ -1,13 +1,11 @@
 # Torrust Tracker REST API
-
-## Endpoints in API (v2)
 __Notice:__
 This API should not be exposed directly to the internet, it is intended for internal use only. 
 
 All endpoints require an authorization token which must be set in the configuration before running the tracker. 
 The default configuration uses `?token=MyAccessToken`.
 
----
+## Torrents
 ### `GET /api/torrents`
 Get a list of all currently tracked torrents.
 
@@ -58,6 +56,7 @@ Get the detailed info of a torrent hash.
 }
 ```
 ---
+## Whitelist
 ### `POST /api/whitelist/:info_hash`
 __**Notice:**__
 whitelist is only used in Listed or PrivateListed mode.
@@ -84,6 +83,8 @@ Remove a torrent hash from the whitelist.
 }
 ```
 ---
+
+## Tracker Keys
 ### `POST /api/key/:seconds_valid`
 
 Generate a new temporary key which can be used like: ```udp://torrust-tracker.com/:key```

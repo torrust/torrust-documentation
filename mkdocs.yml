@@ -3,8 +3,8 @@ site_url: https://torrust.com/
 site_author: Torrust Developers
 site_description: Torrust Documentation
 
-repo_name: torrust/torrust-documentation
-repo_url: https://github.com/torrust/torrust-documentation
+repo_name: torrust/torrust
+repo_url: https://github.com/torrust/torrust
 
 theme:
   palette:
@@ -15,18 +15,14 @@ theme:
 
 nav:
   - Introduction: index.md
-  - 'Installation': installation.md
-  - 'Torrust Tracker Usage':
-    - Config: torrust-tracker/config.md
-    - 'Tracking Modes': torrust-tracker/tracking_modes.md
-    - API: torrust-tracker/api.md
-  - 'Torrust Index Usage':
-    - Config: torrust-index/config.md
-    - API:
-      - Overview: torrust-index/api.md
-      - 'User': torrust-index/user_api.md
-      - 'Torrent': torrust-index/torrent_api.md
-      - 'Category': torrust-index/category_api.md
+  - 'Torrust Tracker':
+      - Install: torrust-tracker/install.md
+      - Config: torrust-tracker/config.md
+      - API: torrust-tracker/api.md
+  - 'Torrust Index':
+      - Install: torrust-index/install.md
+      - Config: torrust-index/config.md
+      - API: torrust-index/api.md
 
 markdown_extensions:
   - attr_list
