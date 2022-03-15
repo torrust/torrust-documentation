@@ -23,6 +23,7 @@ nav:
       - Install: torrust-index/install.md
       - Config: torrust-index/config.md
       - API: torrust-index/api.md
+  - 'Docker': https://github.com/torrust/torrust-docker
 
 markdown_extensions:
   - attr_list

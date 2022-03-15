@@ -32,6 +32,7 @@ Torrust is split up into two separate applications.
 ## Install
 - Torrust Tracker: [__Install__](https://torrust.com/torrust-tracker/install)
 - Torrust Index: [__Install__](https://torrust.com/torrust-index/install) (requires running a Torrust Tracker)
+- Docker (Tracker + Index): [https://github.com/torrust/torrust-docker](https://github.com/torrust/torrust-docker)
 
 ## Contributing
 Please report any bugs you find to our issue tracker. Ideas and feature requests are welcome as well!
