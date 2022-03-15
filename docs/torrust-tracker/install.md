@@ -154,6 +154,6 @@ D
 ## Announce URL
 |             | Default                          | NGINX                                |
 |-------------|----------------------------------|--------------------------------------|
-| UDP         | udp://TRACKER_IP:PORT            | X                                    |
+| UDP         | udp://TRACKER_IP:PORT/announce   | X                                    |
 | HTTP        | http://TRACKER_IP:PORT/announce  | http://tracker.YOUR_DOMAIN/announce  |
 | HTTPS (SSL) | https://TRACKER_IP:PORT/announce | https://tracker.YOUR_DOMAIN/announce |
