@@ -36,6 +36,41 @@ cargo build --release
 nano config.toml
 ```
 
+Example `config.toml`:
+```toml
+log_level = "info"
+mode = "private"
+db_driver = "Sqlite3"
+db_path = "data.db"
+announce_interval = 120
+min_announce_interval = 120
+max_peer_timeout = 900
+on_reverse_proxy = false
+external_ip = "0.0.0.0"
+tracker_usage_statistics = true
+persistent_torrent_completed_stat = false
+inactive_peer_cleanup_interval = 600
+remove_peerless_torrents = true
+
+[[udp_trackers]]
+enabled = false
+bind_address = "0.0.0.0:6969"
+
+[[http_trackers]]
+enabled = true
+bind_address = "0.0.0.0:6969"
+ssl_enabled = false
+ssl_cert_path = ""
+ssl_key_path = ""
+
+[http_api]
+enabled = true
+bind_address = "127.0.0.1:1212"
+
+[http_api.access_tokens]
+admin = "MyAccessToken"
+```
+
 5\. Allow the port from `bind_address` (default: 6969):
 > If you are using a reverse proxy like NGINX, you can skip this step.
 ```bash
@@ -48,7 +83,7 @@ sudo ufw allow 6969
 1\. Edit your `nano.config` file and change the following settings:
 ```toml
 ...
-[http_tracker]
+[[http_trackers]]
 ...
 ssl_enabled = true
 ssl_cert_path = "YOUR_CERT_PATH"
@@ -62,10 +97,10 @@ Follow steps 1-4 from install above.
 5\. Change the following settings in `config.toml`:
 ```toml
 ...
-[http_tracker]
-enabled = true
-bind_address = "127.0.0.1:6969"
 on_reverse_proxy = true
+...
+[[http_trackers]]
+bind_address = "127.0.0.1:6969"
 ...
 ```
 
