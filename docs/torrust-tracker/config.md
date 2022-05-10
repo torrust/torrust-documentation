@@ -32,33 +32,39 @@ AND the tracker will only track whitelisted torrents.
 ## Configuration
 
 ### Root Level
-| Root             | REQUIRED |                                                    | Values                                            | Default   |
-|------------------|----------|----------------------------------------------------|---------------------------------------------------|-----------|
-| log_level        | OPTIONAL | Log level.                                         | `off`, `info` or `trace`                          | `info`    |
-| mode             | REQUIRED | Tracker Mode.                                      | `public`, `listed`, `private` or `private_listed` | `public`  |
-| db_path          | REQUIRED | SQLite DB Path.                                    | Any path.                                         | `data.db` |
-| cleanup_interval | OPTIONAL | Seconds until inactive peers/torrents are removed. | Interval in seconds.                              | 600       |
-| external_ip      | OPTIONAL | Needs to be set if announcing from local network.  | IP like: `100.69.420.117`                         | EMPTY     |
+| Root                              | REQUIRED |                                                                          | Values                                                                                           | Default   |
+|-----------------------------------|----------|--------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
+| log_level                         | OPTIONAL | Log level.                                                               | `off`, `info` or `trace`                                                                         | `info`    |
+| mode                              | REQUIRED | Tracker Mode.                                                            | `public`, `listed`, `private` or `private_listed`                                                | `public`  |
+| db_driver                         | REQUIRED | Database Driver.                                                         | `MySQL` or `Sqlite3`                                                                             | `Sqlite3` |
+| db_path                           | REQUIRED | Database Path.                                                           | `MySQL CONNECTION URL` (mysql://USERNAME:PASSWORD@HOST:3306/DATABASE) or `Sqlite3 DATABASE PATH` | `data.db` |
+| announce_interval                 | REQUIRED | Interval that peers will announce in.                                    | Interval in seconds.                                                                             | 120       |
+| min_announce_interval             | REQUIRED | Minimal interval that peers will announce in.                            | Interval in seconds.                                                                             | 120       |
+| max_peer_timeout                  | REQUIRED | Maximum seconds peers can be inactive before being removed.              | Seconds.                                                                                         | 900       |
+| on_reverse_proxy                  | REQUIRED | If true, tracker will use X-Forwarded-For header as peer IP.             | `true` or `false`                                                                                | `false`   |
+| external_ip                       | OPTIONAL | Needs to be set if announcing to this tracker from local network.        | IP like: `100.69.420.117`                                                                        | EMPTY     |
+| tracker_usage_statistics          | REQUIRED | Keep track of tracker usage statistics.                                  | `true` or `false`                                                                                | `true`    |
+| persistent_torrent_completed_stat | REQUIRED | Keep track of the completed stat in torrents, even after reboot.         | `true` or `false`                                                                                | `false`   |
+| inactive_peer_cleanup_interval    | REQUIRED | Inactive peers get removed from each torrent every interval.             | Interval in seconds or 0 to disable.                                                             | 600       |
+| remove_peerless_torrents          | REQUIRED | Remove torrents without peers during the inactive_peer_cleanup_interval. | `true` or `false`                                                                                | `true`    |
 
 ### UDP Tracker
-| [udp_tracker]     | REQUIRED |                                       | Values                  | Default        |
-|-------------------|----------|---------------------------------------|-------------------------|----------------|
-| bind_address      | REQUIRED | Bind address + port.                  | Example: `0.0.0.0:6969` | `0.0.0.0:6969` |
-| announce_interval | REQUIRED | Interval that peers will announce in. | Interval in seconds.    | 120            |
+| [[udp_trackers]] (can add multiple) | OPTIONAL |                               | Values                  | Default        |
+|-------------------------------------|----------|-------------------------------|-------------------------|----------------|
+| enabled                             | REQUIRED | Whether this bind is enabled. | true or false           | false          |
+| bind_address                        | REQUIRED | Bind address + port.          | Example: `0.0.0.0:6969` | `0.0.0.0:6969` |
 
 ### HTTP Tracker
-| [http_tracker]     | OPTIONAL |                                                             | Values                  | Default        |
-|--------------------|----------|-------------------------------------------------------------|-------------------------|----------------|
-| enabled            | REQUIRED | If false, UDP tracker will run.                             | true or false           | false          |
-| bind_address       | REQUIRED | Bind address + port.                                        | Example: `0.0.0.0:6969` | `0.0.0.0:6969` |
-| on_reverse_proxy   | REQUIRED | If true, tracker will use X-Forwarded-For header as peer IP.| true or false           | false          |
-| announce_interval  | REQUIRED | Interval that peers will announce in.                       | Interval in seconds.    | 120            |
-| ssl_enabled        | OPTIONAL | Enable SSL or not. HIGHLY RECOMMENDED for private trackers. | true or false           | false          |
-| ssl_cert_path      | OPTIONAL | Path to SSL cert.                                           | Any path.               | EMPTY          |
-| ssl_key_path       | OPTIONAL | Path to SSL cert key.                                       | Any path.               | EMPTY          |
+| [[http_trackers]] (can add multiple) | OPTIONAL |                                                             | Values                  | Default        |
+|--------------------------------------|----------|-------------------------------------------------------------|-------------------------|----------------|
+| enabled                              | REQUIRED | Whether this bind is enabled.                               | true or false           | false          |
+| bind_address                         | REQUIRED | Bind address + port.                                        | Example: `0.0.0.0:6969` | `0.0.0.0:6969` |
+| ssl_enabled                          | REQUIRED | Enable SSL or not. HIGHLY RECOMMENDED for private trackers. | true or false           | false          |
+| ssl_cert_path                        | OPTIONAL | Path to SSL cert.                                           | Any path.               | EMPTY          |
+| ssl_key_path                         | OPTIONAL | Path to SSL cert key.                                       | Any path.               | EMPTY          |
 
 ### HTTP API
-| [http_api]   | OPTIONAL |                       | Values                    | Default          |
+| [http_api]   | REQUIRED |                       | Values                    | Default          |
 |--------------|----------|-----------------------|---------------------------|------------------|
 | enabled      | REQUIRED | Enables built-in API. | true or false             | true             |
 | bind_address | REQUIRED | Bind address + port.  | Example: `127.0.0.1:1212` | `127.0.0.1:1212` |
@@ -69,21 +75,27 @@ AND the tracker will only track whitelisted torrents.
 
 ## Sample Configuration
 ```toml
-log_level = "trace"
-mode = "private"
+log_level = "info"
+mode = "public"
+db_driver = "Sqlite3"
 db_path = "data.db"
-cleanup_interval = 600
-external_ip = "148.420.69.117"
-
-[udp_tracker]
-bind_address = "0.0.0.0:6969"
 announce_interval = 120
+min_announce_interval = 120
+max_peer_timeout = 900
+on_reverse_proxy = false
+external_ip = "0.0.0.0"
+tracker_usage_statistics = true
+persistent_torrent_completed_stat = false
+inactive_peer_cleanup_interval = 600
+remove_peerless_torrents = true
 
-[http_tracker]
+[[udp_trackers]]
 enabled = false
 bind_address = "0.0.0.0:6969"
-on_reverse_proxy = false
-announce_interval = 120
+
+[[http_trackers]]
+enabled = true
+bind_address = "0.0.0.0:6969"
 ssl_enabled = false
 ssl_cert_path = ""
 ssl_key_path = ""
