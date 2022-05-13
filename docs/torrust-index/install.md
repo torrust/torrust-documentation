@@ -128,7 +128,7 @@ server {
     }
     
     location /api/ {
-        proxy_pass https://127.0.0.1:3000/;
+        proxy_pass http://127.0.0.1:3000/;
     }
 }
 ```

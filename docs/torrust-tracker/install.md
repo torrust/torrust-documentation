@@ -2,7 +2,7 @@
 ## Global Prerequisites
 - [Git](https://git-scm.com) - Version Control.
 - [cURL](https://curl.se/) - Command line tool and library for transferring data with URLs.
-- [Rust/Cargo](https://www.rust-lang.org/) - Compiler toolchain & Package Manager (cargo).
+- [Rust/Cargo version => v1.60.0](https://www.rust-lang.org/) - Compiler toolchain & Package Manager (cargo).
 - (Optional) [Tmux](https://linuxize.com/post/getting-started-with-tmux/) - Run processes in the background.
 
 ## Install Prerequisites
@@ -25,6 +25,7 @@ git clone https://github.com/torrust/torrust-tracker.git
 cd torrust-tracker
 cargo build --release
 ```
+> If you run into errors here, try running : `rustup update stable` before building.
 
 3\. Run the torrust-tracker once to create the `config.toml` file:
 ```bash
