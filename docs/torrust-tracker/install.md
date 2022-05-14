@@ -102,6 +102,7 @@ on_reverse_proxy = true
 ...
 [[http_trackers]]
 bind_address = "127.0.0.1:6969"
+ssl_enabled = false
 ...
 ```
 
