@@ -5,6 +5,32 @@ This API should not be exposed directly to the internet, it is intended for inte
 All endpoints require an authorization token which must be set in the configuration before running the tracker. 
 The default configuration uses `?token=MyAccessToken`.
 
+## Statistics
+### `GET /api/stats`
+Get the current tracker statistics.
+
+`Example: GET /api/stats?token=MyAccessToken`
+```json 
+{
+    "torrents": 0,
+    "seeders": 0,
+    "completed": 0,
+    "leechers": 0,
+    "tcp4_connections_handled": 1,
+    "tcp4_announces_handled": 0,
+    "tcp4_scrapes_handled": 1,
+    "tcp6_connections_handled": 0,
+    "tcp6_announces_handled": 0,
+    "tcp6_scrapes_handled": 0,
+    "udp4_connections_handled": 0,
+    "udp4_announces_handled": 0,
+    "udp4_scrapes_handled": 0,
+    "udp6_connections_handled": 0,
+    "udp6_announces_handled": 0,
+    "udp6_scrapes_handled": 0
+}
+```
+---
 ## Torrents
 ### `GET /api/torrents`
 Get a list of all currently tracked torrents.
