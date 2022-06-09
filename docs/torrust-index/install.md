@@ -1,5 +1,6 @@
 # Installing the torrust-index
-> The torrust-index requires a running torrust-tracker.
+> The torrust-index requires a running [torrust-tracker](https://torrust.com/torrust-tracker/install/).
+
 ## Global Prerequisites
 - [Git](https://git-scm.com) - Version Control.
 - [cURL](https://curl.se/) - Command line tool and library for transferring data with URLs.
