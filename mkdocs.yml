@@ -12,6 +12,7 @@ theme:
     text: Inter
   palette:
     scheme: torrust
+  logo: assets/images/logo.png
 
 extra_css:
   - stylesheets/extra.css
