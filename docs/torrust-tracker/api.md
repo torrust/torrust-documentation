@@ -1,4 +1,4 @@
-# Torrust Tracker REST API
+# torrust-tracker REST API
 __Notice:__
 This API should not be exposed directly to the internet, it is intended for internal use only. 
 

@@ -1,5 +1,5 @@
-# Installing the Torrust Index
-> The Torrust Index requires a running Torrust Tracker.
+# Installing the torrust-index
+> The torrust-index requires a running torrust-tracker.
 ## Global Prerequisites
 - [Git](https://git-scm.com) - Version Control.
 - [cURL](https://curl.se/) - Command line tool and library for transferring data with URLs.
@@ -62,7 +62,7 @@ nano config.toml
 
 - `url`: Set to a connection string for the tracker. Eg: `udp://TRACKER_IP:6969`.
 - `api_url`: Set to tracker api URL. Default: `http://localhost:1212`.
-- `token`: Set this to an access token from the Torrust Tracker config.toml.
+- `token`: Set this to an access token from the torrust-tracker config.toml.
 
 `[net]`
 

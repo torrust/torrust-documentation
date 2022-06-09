@@ -1,5 +1,5 @@
 # REST API
-> This page is heavy WIP and missing a lot of endpoints from the newest Torrust Index.
+> This page is heavy WIP and missing a lot of endpoints from the newest torrust-index.
 ## Authorization
 Some routes can only be accessed by logged in users.
 For these routes you have to send the token obtained in [/user/login](user_api.md#login) in the `Authorization` header as a bearer token.

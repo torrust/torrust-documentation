@@ -1,20 +1,7 @@
 # Torrust Documentation
+This is the documentation site for all Torrust projects.
 
-## Introduction
-Torrust is an open source project that brings you all the tools you need to host your own (private) BitTorrent tracker and online torrent index.
-
-### Project structure
-Torrust is split up into two separate applications.
-
-- [__Torrust Tracker__](https://github.com/torrust/torrust-tracker): A lightweight but incredibly powerful and feature-rich (private) BitTorrent Tracker.
-- [__Torrust Index__](https://github.com/torrust/torrust): A torrent indexing website that depends on the Torrust tracker.
-
-# Installation
-
-## Torrust index + tracker
-Please follow our [guide](https://torrust.github.io/torrust-documentation/installation/).
-
-## Torrust Documentation Site
+## Installation
 ### Prerequisites (installed)
 
 - [Python](https://www.python.org/)
@@ -30,7 +17,7 @@ Clone repo:
 git clone https://github.com/torrust/torrust-documentation.git
 ```
 
-# Usage
+## Usage
 
 ### Run Development
 

@@ -1,4 +1,4 @@
-# Installing the Torrust Tracker
+# Installing the torrust-tracker
 ## Global Prerequisites
 - [Git](https://git-scm.com) - Version Control.
 - [cURL](https://curl.se/) - Command line tool and library for transferring data with URLs.
@@ -12,7 +12,7 @@
 * SQLite3:
     * for Debian/Ubuntu: ```sudo apt-get install libsqlite3-dev```
 
-## Install
+## Installation
 1\. Create the torrust install directory (if you haven't already) and clone the repo:
 ```bash
 mkdir /opt/torrust
@@ -32,7 +32,7 @@ cargo build --release
 ./target/release/torrust-tracker
 ```
 
-4\. Edit the newly created `config.toml` file (see: [Config Documentation](https://torrust.com/torrust-tracker/config/)):
+4\. Edit the newly created `config.toml` file (See: [Configuration](https://torrust.com/torrust-tracker/config/)):
 ```bash
 nano config.toml
 ```
@@ -78,7 +78,7 @@ admin = "MyAccessToken"
 sudo ufw allow 6969
 ```
 
-### (optional) Use SSL
+### Setup SSL (optional)
 > If you are using a reverse proxy like NGINX, you can skip this step and use NGINX for the SSL instead.
 
 1\. Edit your `nano.config` file and change the following settings:
@@ -92,7 +92,7 @@ ssl_key_path = "YOUR_CERT_KEY_PATH"
 ...
 ```
 
-## Install with NGINX
+## Installation with NGINX
 Follow steps 1-4 from install above.
 
 5\. Change the following settings in `config.toml`:
@@ -164,33 +164,6 @@ ln -s /etc/nginx/sites-available/tracker.torrust.com /etc/nginx/sites-enabled/
 sudo systemctl reload nginx
 ```
 
-## Usage
-1\. While in the `torrust-tracker` folder, you can run the torrust-tracker like this:
-```bash
-./target/release/torrust-tracker
-```
+<br>
 
-## Usage with Tmux
-1\. Open a new Tmux session:
-```bash
-tmux new -s torrust-tracker
-```
-
-2\. While in Tmux session, run the torrust-tracker:
-```bash
-cd /opt/torrust/torrust-tracker
-./target/release/torrust-tracker
-```
-
-3\. Detach from Tmux session: 
-```
-CTRL+B
-D
-```
-
-## Announce URL
-|             | Default                          | NGINX                                |
-|-------------|----------------------------------|--------------------------------------|
-| UDP         | udp://TRACKER_IP:PORT/announce   | X                                    |
-| HTTP        | http://TRACKER_IP:PORT/announce  | http://tracker.YOUR_DOMAIN/announce  |
-| HTTPS (SSL) | https://TRACKER_IP:PORT/announce | https://tracker.YOUR_DOMAIN/announce |
+__[How to run torrust-tracker](https://torrust.com/torrust-tracker/usage/)__

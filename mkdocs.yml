@@ -20,15 +20,15 @@ extra_css:
 
 nav:
   - Introduction: index.md
-  - 'Torrust Tracker':
-      - Install: torrust-tracker/install.md
-      - Config: torrust-tracker/config.md
-      - API: torrust-tracker/api.md
-  - 'Torrust Index':
-      - Install: torrust-index/install.md
-      - Config: torrust-index/config.md
-      - API: torrust-index/api.md
-  - 'Docker': https://github.com/torrust/torrust-docker
+  - torrust-tracker:
+      - Installation: torrust-tracker/install.md
+      - Usage: torrust-tracker/usage.md
+      - Configuration: torrust-tracker/config.md
+      - Tracker API: torrust-tracker/api.md
+  - 'torrust-index':
+      - Installation: torrust-index/install.md
+      - Configuration: torrust-index/config.md
+      - API Endpoints: torrust-index/api.md
 
 markdown_extensions:
   - attr_list
