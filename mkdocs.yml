@@ -3,15 +3,18 @@ site_url: https://torrust.com/
 site_author: Torrust Developers
 site_description: Torrust Documentation
 
-repo_name: torrust/torrust
-repo_url: https://github.com/torrust/torrust
+repo_name: torrust/torrust-tracker
+repo_url: https://github.com/torrust/torrust-tracker
 
 theme:
-  palette:
-    primary: blue
-    scheme: slate
-    accent: blue
   name: material
+  font:
+    text: Inter
+  palette:
+    scheme: torrust
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Introduction: index.md
