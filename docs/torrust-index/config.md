@@ -9,9 +9,9 @@ Torrust's configuration is a simple TOML file. If no TOML file is found, it will
 ## Configuration
 
 ### Tracker
-- `REQUIRED` `url`: public UDP url of the Torrust Tracker instance.
-- `REQUIRED` `api_url`: URL of the Torrust Tracker API, usually `http://localhost:1212`.
-- `REQUIRED` `token`: token configured in the Torrust Tracker configuration.
+- `REQUIRED` `url`: public UDP url of the torrust-tracker instance.
+- `REQUIRED` `api_url`: URL of the torrust-tracker API, usually `http://localhost:1212`.
+- `REQUIRED` `token`: token configured in the torrust-tracker configuration.
 - `REQUIRED` `token_valid_seconds`: Lifetime of a tracker key.
 
 ### NET

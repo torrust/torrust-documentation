@@ -1,0 +1,38 @@
+[data-md-color-scheme="torrust"] {
+    /* Navbar background color */
+    --md-primary-fg-color: #101010;
+
+    /* Navbar text color */
+    --md-primary-bg-color: #FFFFFF;
+
+    /* Body background color */
+    --md-default-bg-color: #1C1C1C;
+
+    /* Footer background color */
+    --md-footer-bg-color: #181818;
+
+    /* Text color */
+    --md-default-fg-color: #BDC1C6;
+
+    /* Header color */
+    --md-default-fg-color--light: #DDDDDD;
+
+    /* Icon color */
+    --md-default-fg-color--lighter: #DDDDDD;
+
+    /* Link color */
+    --md-typeset-a-color: #F36F3A;
+
+    /* Link hover color */
+    --md-accent-fg-color: #FEC368;
+
+    /* Code block background color */
+    --md-code-bg-color: #000000;
+
+    /* Code block text color */
+    --md-code-fg-color: #DDDDDD;
+}
+
+.md-header {
+    font-weight: bold;
+}

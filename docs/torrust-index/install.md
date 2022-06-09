@@ -1,5 +1,6 @@
-# Installing the Torrust Index
-> The Torrust Index requires a running Torrust Tracker.
+# Installing the torrust-index
+> The torrust-index requires a running [torrust-tracker](https://torrust.com/torrust-tracker/install/).
+
 ## Global Prerequisites
 - [Git](https://git-scm.com) - Version Control.
 - [cURL](https://curl.se/) - Command line tool and library for transferring data with URLs.
@@ -27,33 +28,38 @@ apt-get install -y nodejs
 ```bash
 mkdir /opt/torrust
 cd /opt/torrust
-git clone https://github.com/torrust/torrust.git
+git clone https://github.com/torrust/torrust-index.git
 ```
 
-2\. Change to the backend directory and create a file called: `.env`:
+2\. Pull the submodules:
 ```bash
-cd torrust/backend
+cd torrust-index
+git pull --recurse-submodules
+```
+
+3\. Change to the backend directory and create a file called: `.env`:
+```bash
+cd backend
 echo "DATABASE_URL=sqlite://data.db?mode=rwc" > .env
 ```
 
-3\. Then we have to create the SQLite database and run the migrations. Install the `sqlx-cli` and create the database:
+4\. Then we have to create the SQLite database and run the migrations. Install the `sqlx-cli` and create the database:
 ```bash
 cargo install sqlx-cli
 sqlx db setup
 ```
 
-4\. Now build the backend:
+5\. Now build the backend:
 ```bash
 cargo build --release
 ```
 
-5\. Run the backend once to generate the config.toml file:
+6\. Run the backend once to generate the config.toml file:
 ```bash
-cd /opt/torrust/torrust/backend
-./target/release/torrust
+./target/release/torrust-index-backend
 ```
 
-6\. Then edit the `config.toml` and change at least the following keys:
+7\. Then edit the `config.toml` and change at least the following keys:
 ```bash
 nano config.toml
 ```
@@ -62,7 +68,7 @@ nano config.toml
 
 - `url`: Set to a connection string for the tracker. Eg: `udp://TRACKER_IP:6969`.
 - `api_url`: Set to tracker api URL. Default: `http://localhost:1212`.
-- `token`: Set this to an access token from the Torrust Tracker config.toml.
+- `token`: Set this to an access token from the torrust-tracker config.toml.
 
 `[net]`
 
@@ -75,16 +81,16 @@ nano config.toml
 ## Running the backend
 1\. Run the backend using:
 ```bash
-cd /opt/torrust/torrust/backend
-./target/release/torrust
+cd /opt/torrust/torrust-index/backend
+./target/release/torrust-index-backend
 ```
 
 ## Running the backend using Tmux
 1\. Run the backend using Tmux:
 ```bash
 tmux new -s torrust-index
-cd /opt/torrust/torrust/backend
-./target/release/torrust
+cd /opt/torrust/torrust-index/backend
+./target/release/torrust-index-backend
 ```
 > Press `CTRL+B D` to exit the tmux session without killing it.
 
@@ -92,7 +98,7 @@ cd /opt/torrust/torrust/backend
 1\. Start with creating a file called '.env':
 > Make sure to change YOUR_DOMAIN.
 ```bash
-cd /opt/torrust/torrust/frontend
+cd /opt/torrust/torrust-index/frontend
 echo "VITE_API_BASE_URL=https://YOUR_DOMAIN/api" > .env
 ```
 
@@ -122,7 +128,7 @@ server {
     ssl_certificate CERT_PATH;
     ssl_certificate_key CERT_KEY_PATH;
 
-    root /opt/torrust/torrust/frontend/dist/;
+    root /opt/torrust/torrust-index/frontend/dist/;
     location / {
         try_files $uri $uri/ /index.html;
     }

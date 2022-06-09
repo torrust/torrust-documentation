@@ -3,27 +3,32 @@ site_url: https://torrust.com/
 site_author: Torrust Developers
 site_description: Torrust Documentation
 
-repo_name: torrust/torrust
-repo_url: https://github.com/torrust/torrust
+repo_name: torrust/torrust-tracker
+repo_url: https://github.com/torrust/torrust-tracker
 
 theme:
-  palette:
-    primary: blue
-    scheme: slate
-    accent: blue
   name: material
+  font:
+    text: Inter
+  palette:
+    scheme: torrust
+  logo: assets/images/logo.png
+  favicon: assets/images/favicon.ico
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Introduction: index.md
-  - 'Torrust Tracker':
-      - Install: torrust-tracker/install.md
-      - Config: torrust-tracker/config.md
-      - API: torrust-tracker/api.md
-  - 'Torrust Index':
-      - Install: torrust-index/install.md
-      - Config: torrust-index/config.md
-      - API: torrust-index/api.md
-  - 'Docker': https://github.com/torrust/torrust-docker
+  - torrust-tracker:
+      - Installation: torrust-tracker/install.md
+      - Usage: torrust-tracker/usage.md
+      - Configuration: torrust-tracker/config.md
+      - Tracker API: torrust-tracker/api.md
+  - 'torrust-index':
+      - Installation: torrust-index/install.md
+      - Configuration: torrust-index/config.md
+      - API Endpoints: torrust-index/api.md
 
 markdown_extensions:
   - attr_list
