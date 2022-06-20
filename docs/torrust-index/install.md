@@ -28,13 +28,12 @@ apt-get install -y nodejs
 ```bash
 mkdir /opt/torrust
 cd /opt/torrust
-git clone https://github.com/torrust/torrust-index.git
+git clone --recurse-submodules https://github.com/torrust/torrust-index.git
 ```
 
-2\. Pull the submodules:
+2\. Go into the newly cloned folder:
 ```bash
 cd torrust-index
-git pull --recurse-submodules
 ```
 
 3\. Change to the backend directory and create a file called: `.env`:
