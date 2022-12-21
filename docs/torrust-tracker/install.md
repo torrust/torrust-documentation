@@ -92,7 +92,7 @@ ssl_key_path = "YOUR_CERT_KEY_PATH"
 ...
 ```
 
-## Installation with NGINX
+## Installation behind NGINX or Apache reverse proxy
 Follow steps 1-4 from install above.
 
 5\. Change the following settings in `config.toml`:
@@ -106,6 +106,7 @@ ssl_enabled = false
 ...
 ```
 
+### NGINX
 6\. Create an NGINX config for the tracker (example: tracker.torrust.com): 
 > Make sure to use your own domain name instead.
 ```bash
@@ -162,6 +163,102 @@ ln -s /etc/nginx/sites-available/tracker.torrust.com /etc/nginx/sites-enabled/
   if the config is valid you can safely reload Nginx to make the new configuration active:
 ```bash
 sudo systemctl reload nginx
+```
+
+
+### Apache
+6\. Create an Apache config for the tracker (example: tracker.torrust.com): 
+> Make sure to use your own domain name instead.
+```bash
+sudo nano /etc/apache2/sites-available/tracker.torrust.com.conf
+```
+
+6\.1\. Insert the example configuration:
+> Don't copy the SSL comment and make sure to change the domain name to yours.
+```apache
+# HTTP only (without SSL)
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@tracker.torrust.com
+    ServerName tracker.torrust.com
+
+    <Proxy *>
+        Order allow,deny
+        Allow from all
+    </Proxy>
+
+    ProxyPreserveHost On
+    ProxyRequests Off
+    AllowEncodedSlashes NoDecode
+
+    ProxyPass / http://localhost:6969/
+    ProxyPassReverse / http://localhost:6969/
+    ProxyPassReverse / http://tracker.torrust.com/
+
+    RequestHeader set X-Forwarded-Proto "http"
+    RequestHeader set X-Forwarded-Port "80"
+
+    ErrorLog ${APACHE_LOG_DIR}/tracker.torrust.com-error.log
+    CustomLog ${APACHE_LOG_DIR}/tracker.torrust.com-access.log combined
+</VirtualHost>
+```
+> Make sure to change the SSLCertificateFile and SSLCertificateKeyFile paths.
+```apache
+# HTTPS only (with SSL - force redirect to HTTPS)
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@tracker.torrust.com
+    ServerName tracker.torrust.com
+
+    <IfModule mod_rewrite.c>
+        RewriteEngine on
+        RewriteCond %{HTTPS} off
+        RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+    </IfModule>
+</VirtualHost>
+
+<IfModule mod_ssl.c>
+    <VirtualHost *:443>
+        ServerAdmin webmaster@tracker.torrust.com
+        ServerName tracker.torrust.com
+
+        <Proxy *>
+            Order allow,deny
+            Allow from all
+        </Proxy>
+
+        ProxyPreserveHost On
+        ProxyRequests Off
+        AllowEncodedSlashes NoDecode
+
+        ProxyPass / http://localhost:3000/
+        ProxyPassReverse / http://localhost:3000/
+        ProxyPassReverse / http://tracker.torrust.com/
+
+        RequestHeader set X-Forwarded-Proto "https"
+        RequestHeader set X-Forwarded-Port "443"
+
+        ErrorLog ${APACHE_LOG_DIR}/tracker.torrust.com-error.log
+        CustomLog ${APACHE_LOG_DIR}/tracker.torrust.com-access.log combined
+
+        SSLCertificateFile CERT_PATH
+        SSLCertificateKeyFile CERT_KEY_PATH
+    </VirtualHost>
+</IfModule>
+```
+
+7\. Enable the configuration by making a symlink to the config in the `sites-enabled` directory.
+> Replace tracker.torrust.com with your domain/Apache config.
+```bash
+sudo ln -s /etc/apache2/sites-available/tracker.torrust.com.conf /etc/apache2/sites-enabled/
+# or 
+sudo a2enssite tracker.torrust.com
+```
+
+8\. After this you can test the validity of the config by executing `sudo apache2ctl -t`,
+  if the config is valid you can safely reload Apache to make the new configuration active:
+```bash
+sudo systemctl reload apache2
 ```
 
 <br>
