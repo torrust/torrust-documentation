@@ -9,6 +9,13 @@ This is the documentation site for all Torrust projects.
 - [MkDocs](https://www.mkdocs.org/#installation)
 - [MkDocs Material theme](https://squidfunk.github.io/mkdocs-material/getting-started/)
 
+You can install `mkdocs` and `mkdocs-material` with:
+
+```s
+pip3 install mkdocs
+pip3 install mkdocs-material
+```
+
 ### Project Files
 
 Clone repo:
