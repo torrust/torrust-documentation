@@ -3,8 +3,8 @@ site_url: https://torrust.com/
 site_author: Torrust Developers
 site_description: Torrust Documentation
 
-repo_name: torrust/torrust-tracker
-repo_url: https://github.com/torrust/torrust-tracker
+repo_name: torrust/torrust-documentation
+repo_url: https://github.com/torrust/torrust-documentation
 
 theme:
   name: material
