@@ -1,0 +1,924 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Torrust Documentation">
+      
+      
+        <meta name="author" content="Torrust Developers">
+      
+      
+        <link rel="canonical" href="https://torrust.com/torrust-tracker/install/">
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Installation - Torrust Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="torrust" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installing-the-tracker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Torrust Documentation" class="md-header__button md-logo" aria-label="Torrust Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Torrust Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/torrust/torrust-documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    torrust/torrust-documentation
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Torrust Documentation" class="md-nav__button md-logo" aria-label="Torrust Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    Torrust Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/torrust/torrust-documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    torrust/torrust-documentation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tracker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tracker" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tracker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Installation
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#global-prerequisites" class="md-nav__link">
+    Global Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-prerequisites" class="md-nav__link">
+    Install Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-ssl-optional" class="md-nav__link">
+    Setup SSL (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-behind-nginx-or-apache-reverse-proxy" class="md-nav__link">
+    Installation behind NGINX or Apache reverse proxy
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation behind NGINX or Apache reverse proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    NGINX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache" class="md-nav__link">
+    Apache
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Index
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Index" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Index
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../torrust-index/install/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../torrust-index/config/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../torrust-index/api/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#global-prerequisites" class="md-nav__link">
+    Global Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-prerequisites" class="md-nav__link">
+    Install Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-ssl-optional" class="md-nav__link">
+    Setup SSL (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-behind-nginx-or-apache-reverse-proxy" class="md-nav__link">
+    Installation behind NGINX or Apache reverse proxy
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation behind NGINX or Apache reverse proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    NGINX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache" class="md-nav__link">
+    Apache
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/torrust/torrust-documentation/edit/master/docs/torrust-tracker/install.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="installing-the-tracker">Installing the Tracker</h1>
+<h2 id="global-prerequisites">Global Prerequisites</h2>
+<ul>
+<li><a href="https://git-scm.com">Git</a> - Version Control.</li>
+<li><a href="https://curl.se/">cURL</a> - Command line tool and library for transferring data with URLs.</li>
+<li><a href="https://www.rust-lang.org/">Rust/Cargo version =&gt; v1.60.0</a> - Compiler toolchain &amp; Package Manager (cargo).</li>
+<li>(Optional) <a href="https://linuxize.com/post/getting-started-with-tmux/">Tmux</a> - Run processes in the background.</li>
+</ul>
+<h2 id="install-prerequisites">Install Prerequisites</h2>
+<ul>
+<li>OpenSSL:</li>
+<li>for Arch Linux: <code>sudo pacman -S pkg-config openssl</code></li>
+<li>for Debian/Ubuntu: <code>sudo apt-get install pkg-config libssl-dev</code></li>
+<li>SQLite3:</li>
+<li>for Debian/Ubuntu: <code>sudo apt-get install libsqlite3-dev</code></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>1. Create the torrust install directory (if you haven't already) and clone the repo:</p>
+<pre><code class="language-bash">mkdir /opt/torrust
+cd /opt/torrust
+git clone https://github.com/torrust/torrust-tracker.git
+</code></pre>
+<p>2. Build the source code:</p>
+<pre><code class="language-bash">cd torrust-tracker
+cargo build --release
+</code></pre>
+<blockquote>
+<p>If you run into errors here, try running : <code>rustup update stable</code> before building.</p>
+</blockquote>
+<p>3. Run the torrust-tracker once to create the <code>config.toml</code> file:</p>
+<pre><code class="language-bash">./target/release/torrust-tracker
+</code></pre>
+<p>4. Edit the newly created <code>config.toml</code> file (See: <a href="https://torrust.com/torrust-tracker/config/">Configuration</a>):</p>
+<pre><code class="language-bash">nano config.toml
+</code></pre>
+<p>Example <code>config.toml</code>:</p>
+<pre><code class="language-toml">log_level = &quot;info&quot;
+mode = &quot;private&quot;
+db_driver = &quot;Sqlite3&quot;
+db_path = &quot;data.db&quot;
+announce_interval = 120
+min_announce_interval = 120
+max_peer_timeout = 900
+on_reverse_proxy = false
+external_ip = &quot;0.0.0.0&quot;
+tracker_usage_statistics = true
+persistent_torrent_completed_stat = false
+inactive_peer_cleanup_interval = 600
+remove_peerless_torrents = true
+
+[[udp_trackers]]
+enabled = false
+bind_address = &quot;0.0.0.0:6969&quot;
+
+[[http_trackers]]
+enabled = true
+bind_address = &quot;0.0.0.0:6969&quot;
+ssl_enabled = false
+ssl_cert_path = &quot;&quot;
+ssl_key_path = &quot;&quot;
+
+[http_api]
+enabled = true
+bind_address = &quot;127.0.0.1:1212&quot;
+
+[http_api.access_tokens]
+admin = &quot;MyAccessToken&quot;
+</code></pre>
+<p>5. Allow the port from <code>bind_address</code> (default: 6969):</p>
+<blockquote>
+<p>If you are using a reverse proxy like NGINX, you can skip this step.</p>
+</blockquote>
+<pre><code class="language-bash">sudo ufw allow 6969
+</code></pre>
+<h3 id="setup-ssl-optional">Setup SSL (optional)</h3>
+<blockquote>
+<p>If you are using a reverse proxy like NGINX, you can skip this step and use NGINX for the SSL instead.</p>
+</blockquote>
+<p>1. Edit your <code>nano.config</code> file and change the following settings:</p>
+<pre><code class="language-toml">...
+[[http_trackers]]
+...
+ssl_enabled = true
+ssl_cert_path = &quot;YOUR_CERT_PATH&quot;
+ssl_key_path = &quot;YOUR_CERT_KEY_PATH&quot;
+...
+</code></pre>
+<h2 id="installation-behind-nginx-or-apache-reverse-proxy">Installation behind NGINX or Apache reverse proxy</h2>
+<p>Follow steps 1-4 from install above.</p>
+<p>5. Change the following settings in <code>config.toml</code>:</p>
+<pre><code class="language-toml">...
+on_reverse_proxy = true
+...
+[[http_trackers]]
+bind_address = &quot;127.0.0.1:6969&quot;
+ssl_enabled = false
+...
+</code></pre>
+<h3 id="nginx">NGINX</h3>
+<p>6. Create an NGINX config for the tracker (example: tracker.torrust.com):</p>
+<blockquote>
+<p>Make sure to use your own domain name instead.</p>
+</blockquote>
+<pre><code class="language-bash">sudo nano /etc/nginx/sites-available/tracker.torrust.com
+</code></pre>
+<p>6.1. Insert the example configuration:</p>
+<blockquote>
+<p>Don't copy the SSL comment and make sure to change the domain name to yours.</p>
+</blockquote>
+<pre><code class="language-nginx"># without SSL
+
+server {
+    listen 80;
+    server_name tracker.torrust.com;
+
+    location / {
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_pass http://127.0.0.1:6969;
+    }
+}
+</code></pre>
+<blockquote>
+<p>Make sure to change the ssl_certificate paths.</p>
+</blockquote>
+<pre><code class="language-nginx"># with SSL
+
+server {
+    listen 80;
+    server_name tracker.torrust.com;
+
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443;
+    server_name tracker.torrust.com;
+
+    ssl_certificate CERT_PATH
+    ssl_certificate_key CERT_KEY_PATH; 
+
+    location / {
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_pass http://127.0.0.1:6969;
+    }
+}
+</code></pre>
+<p>7. Enable the configuration by making a symlink to the config in the <code>sites-enabled</code> directory.</p>
+<blockquote>
+<p>Replace tracker.torrust.com with your domain/NGINX config.</p>
+</blockquote>
+<pre><code class="language-bash">ln -s /etc/nginx/sites-available/tracker.torrust.com /etc/nginx/sites-enabled/
+</code></pre>
+<p>8. After this you can test the validity of the config by executing <code>nginx -t</code>,
+  if the config is valid you can safely reload Nginx to make the new configuration active:</p>
+<pre><code class="language-bash">sudo systemctl reload nginx
+</code></pre>
+<h3 id="apache">Apache</h3>
+<p>6. Create an Apache config for the tracker (example: tracker.torrust.com):</p>
+<blockquote>
+<p>Make sure to use your own domain name instead.</p>
+</blockquote>
+<pre><code class="language-bash">sudo nano /etc/apache2/sites-available/tracker.torrust.com.conf
+</code></pre>
+<p>6.1. Insert the example configuration:</p>
+<blockquote>
+<p>Don't copy the SSL comment and make sure to change the domain name to yours.</p>
+</blockquote>
+<pre><code class="language-apache"># HTTP only (without SSL)
+
+&lt;VirtualHost *:80&gt;
+    ServerAdmin webmaster@tracker.torrust.com
+    ServerName tracker.torrust.com
+
+    &lt;Proxy *&gt;
+        Order allow,deny
+        Allow from all
+    &lt;/Proxy&gt;
+
+    ProxyPreserveHost On
+    ProxyRequests Off
+    AllowEncodedSlashes NoDecode
+
+    ProxyPass / http://localhost:6969/
+    ProxyPassReverse / http://localhost:6969/
+    ProxyPassReverse / http://tracker.torrust.com/
+
+    RequestHeader set X-Forwarded-Proto &quot;http&quot;
+    RequestHeader set X-Forwarded-Port &quot;80&quot;
+
+    ErrorLog ${APACHE_LOG_DIR}/tracker.torrust.com-error.log
+    CustomLog ${APACHE_LOG_DIR}/tracker.torrust.com-access.log combined
+&lt;/VirtualHost&gt;
+</code></pre>
+<blockquote>
+<p>Make sure to change the SSLCertificateFile and SSLCertificateKeyFile paths.</p>
+</blockquote>
+<pre><code class="language-apache"># HTTPS only (with SSL - force redirect to HTTPS)
+
+&lt;VirtualHost *:80&gt;
+    ServerAdmin webmaster@tracker.torrust.com
+    ServerName tracker.torrust.com
+
+    &lt;IfModule mod_rewrite.c&gt;
+        RewriteEngine on
+        RewriteCond %{HTTPS} off
+        RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+    &lt;/IfModule&gt;
+&lt;/VirtualHost&gt;
+
+&lt;IfModule mod_ssl.c&gt;
+    &lt;VirtualHost *:443&gt;
+        ServerAdmin webmaster@tracker.torrust.com
+        ServerName tracker.torrust.com
+
+        &lt;Proxy *&gt;
+            Order allow,deny
+            Allow from all
+        &lt;/Proxy&gt;
+
+        ProxyPreserveHost On
+        ProxyRequests Off
+        AllowEncodedSlashes NoDecode
+
+        ProxyPass / http://localhost:3000/
+        ProxyPassReverse / http://localhost:3000/
+        ProxyPassReverse / http://tracker.torrust.com/
+
+        RequestHeader set X-Forwarded-Proto &quot;https&quot;
+        RequestHeader set X-Forwarded-Port &quot;443&quot;
+
+        ErrorLog ${APACHE_LOG_DIR}/tracker.torrust.com-error.log
+        CustomLog ${APACHE_LOG_DIR}/tracker.torrust.com-access.log combined
+
+        SSLCertificateFile CERT_PATH
+        SSLCertificateKeyFile CERT_KEY_PATH
+    &lt;/VirtualHost&gt;
+&lt;/IfModule&gt;
+</code></pre>
+<p>7. Enable the configuration by making a symlink to the config in the <code>sites-enabled</code> directory.</p>
+<blockquote>
+<p>Replace tracker.torrust.com with your domain/Apache config.</p>
+</blockquote>
+<pre><code class="language-bash">sudo ln -s /etc/apache2/sites-available/tracker.torrust.com.conf /etc/apache2/sites-enabled/
+# or 
+sudo a2enssite tracker.torrust.com
+</code></pre>
+<p>8. After this you can test the validity of the config by executing <code>sudo apache2ctl -t</code>,
+  if the config is valid you can safely reload Apache to make the new configuration active:</p>
+<pre><code class="language-bash">sudo systemctl reload apache2
+</code></pre>
+<p><br></p>
+<p><strong><a href="https://torrust.com/torrust-tracker/usage/">How to run torrust-tracker</a></strong></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introduction
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../usage/" class="md-footer__link md-footer__link--next" aria-label="Next: Usage" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Usage
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

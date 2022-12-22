@@ -1,0 +1,14 @@
+[data-md-color-scheme="torrust"] {
+    /* Navbar background color */
+    --md-primary-fg-color: #101010;
+
+    /* Text color */
+    --md-default-fg-color: #181818;
+
+    /* Header color */
+    --md-default-fg-color--light: #181818;
+}
+
+.md-header {
+    font-weight: bold;
+}

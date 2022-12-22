@@ -1,0 +1,1029 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Torrust Documentation">
+      
+      
+        <meta name="author" content="Torrust Developers">
+      
+      
+        <link rel="canonical" href="https://torrust.com/torrust-index/api/">
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>API - Torrust Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="torrust" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#index-rest-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Torrust Documentation" class="md-header__button md-logo" aria-label="Torrust Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Torrust Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/torrust/torrust-documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    torrust/torrust-documentation
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Torrust Documentation" class="md-nav__button md-logo" aria-label="Torrust Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    Torrust Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/torrust/torrust-documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    torrust/torrust-documentation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tracker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tracker" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tracker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../torrust-tracker/install/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../torrust-tracker/usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../torrust-tracker/config/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../torrust-tracker/api/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Index
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Index" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Index
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        API
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authorization" class="md-nav__link">
+    Authorization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errors" class="md-nav__link">
+    Errors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#torrent" class="md-nav__link">
+    Torrent
+  </a>
+  
+    <nav class="md-nav" aria-label="Torrent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-torrents" class="md-nav__link">
+    GET /torrents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-torrentupload" class="md-nav__link">
+    POST /torrent/upload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-torrentdownloadid" class="md-nav__link">
+    GET /torrent/download/&lt;id&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-torrentid" class="md-nav__link">
+    GET /torrent/&lt;id&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#category" class="md-nav__link">
+    Category
+  </a>
+  
+    <nav class="md-nav" aria-label="Category">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-category" class="md-nav__link">
+    GET /category
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    User
+  </a>
+  
+    <nav class="md-nav" aria-label="User">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-userregister" class="md-nav__link">
+    POST /user/register
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-userlogin" class="md-nav__link">
+    POST /user/login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-userverifytoken" class="md-nav__link">
+    GET /user/verify/&lt;token&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-userbanusername" class="md-nav__link">
+    DELETE /user/ban/&lt;username&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authorization" class="md-nav__link">
+    Authorization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errors" class="md-nav__link">
+    Errors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#torrent" class="md-nav__link">
+    Torrent
+  </a>
+  
+    <nav class="md-nav" aria-label="Torrent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-torrents" class="md-nav__link">
+    GET /torrents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-torrentupload" class="md-nav__link">
+    POST /torrent/upload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-torrentdownloadid" class="md-nav__link">
+    GET /torrent/download/&lt;id&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-torrentid" class="md-nav__link">
+    GET /torrent/&lt;id&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#category" class="md-nav__link">
+    Category
+  </a>
+  
+    <nav class="md-nav" aria-label="Category">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-category" class="md-nav__link">
+    GET /category
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    User
+  </a>
+  
+    <nav class="md-nav" aria-label="User">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-userregister" class="md-nav__link">
+    POST /user/register
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-userlogin" class="md-nav__link">
+    POST /user/login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-userverifytoken" class="md-nav__link">
+    GET /user/verify/&lt;token&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-userbanusername" class="md-nav__link">
+    DELETE /user/ban/&lt;username&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/torrust/torrust-documentation/edit/master/docs/torrust-index/api.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="index-rest-api">Index REST API</h1>
+<blockquote>
+<p>This page is heavy WIP and missing a lot of endpoints from the newest torrust-index.</p>
+</blockquote>
+<h2 id="authorization">Authorization</h2>
+<p>Some routes can only be accessed by logged in users.
+For these routes you have to send the token obtained in <a href="./#login">/user/login</a> in the <code>Authorization</code> header as a bearer token.</p>
+<p>For example:</p>
+<pre><code class="language-http">Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJleGFtcGxlX3VzZXIiLCJleHAiOjE2MzIyNTQxNjZ9.kyugZXiR88q4n6Ze44HonazDp-sJdq886te9-XHthHg
+</code></pre>
+<h2 id="errors">Errors</h2>
+<p>Every route always returns a non <code>2xx</code> status code for an error.
+If the error is caused by user input the status code will be in the <code>4xx</code> range.
+Unrecoverable server errors return a <code>500</code> status code.</p>
+<p>Every error contains a error message that is safe to display to an user.
+The body of an error <em>should</em> always look like this:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;&lt;error message&gt;&quot;
+}
+</code></pre>
+<h2 id="torrent">Torrent</h2>
+<h3 id="get-torrents"><code>GET /torrents</code></h3>
+<p>Get all torrent information of the listing with <code>id</code>, used for loading the data of the TorrentDetails page.</p>
+<p><strong>Optional query params:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Description</th>
+<th>Value</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>categories</td>
+<td>Included categories.</td>
+<td>Comma seperated list.</td>
+<td>?categories=music,other,movies</td>
+</tr>
+<tr>
+<td>search</td>
+<td>Search term.</td>
+<td>String.</td>
+<td>&amp;search=bunny</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>Sorting and sort direction.</td>
+<td><code>uploaded_ASC</code>, <code>uploaded_DESC</code>, <code>seeders_ASC</code>, <code>seeders_DESC</code>, <code>leechers_ASC</code>, <code>leechers_DESC</code>, <code>name_ASC</code>, <code>name_DESC</code>, <code>size_ASC</code>, <code>size_DESC</code></td>
+<td>&amp;sort=size_DESC</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong></p>
+<ul>
+<li>On success: Status <code>200</code>.</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;total&quot;: 1,
+    &quot;results&quot;: [
+      {
+        &quot;torrent_id&quot;: 1,
+        &quot;uploader&quot;: &quot;test&quot;,
+        &quot;info_hash&quot;: &quot;bc03e1a08565f8f09bed7c10aad3e6e7771a88fc&quot;,
+        &quot;title&quot;: &quot;Lucky.The.Labrador.IMG.PNG&quot;,
+        &quot;description&quot;: &quot;&quot;,
+        &quot;category_id&quot;: 5,
+        &quot;upload_date&quot;: 1646783943,
+        &quot;file_size&quot;: 1710641,
+        &quot;seeders&quot;: 0,
+        &quot;leechers&quot;: 0
+      }
+    ]
+  }
+}
+</code></pre>
+<hr />
+<h3 id="post-torrentupload"><code>POST /torrent/upload</code></h3>
+<p>Upload a torrent file and create a torrent listing for it in the index.</p>
+<p>Consumes a <strong>multipart</strong> form with the fields:</p>
+<ul>
+<li><code>title</code>: Title of the torrent listing.</li>
+<li><code>description</code>: A Markdown description.</li>
+<li><code>category</code>: Category this torrent fits in.</li>
+<li><code>torrent</code>: The torrent file itself.</li>
+</ul>
+<p><strong>Response:</strong></p>
+<ul>
+<li>On success: Status <code>200</code>, returns id of the newly created torrent listing.</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;torrent_id&quot;: 1
+  }
+}
+</code></pre>
+<ul>
+<li>On error: Standard error, see <a href="./#errors">Errors</a></li>
+</ul>
+<hr />
+<h3 id="get-torrentdownloadid"><code>GET /torrent/download/&lt;id&gt;</code></h3>
+<p>Generate and download torrent file with a personal announce URL for the authenticated user.</p>
+<p><strong>Response:</strong></p>
+<ul>
+<li>On success: Status <code>200</code>, Personalized .torrent file stream.</li>
+<li>On error: Standard error, see <a href="./#errors">Errors</a></li>
+</ul>
+<hr />
+<h3 id="get-torrentid"><code>GET /torrent/&lt;id&gt;</code></h3>
+<p>Get all torrent information of the listing with <code>id</code>, used for loading the data of the TorrentDetails page.</p>
+<p><strong>Response</strong>:</p>
+<ul>
+<li>On success: Status <code>200</code>.</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;torrent_id&quot;: 1,
+    &quot;uploader&quot;: &quot;example_user&quot;,
+    &quot;info_hash&quot;: &quot;5499b9f42b44fb61c937be5943a194adb7aa6278&quot;,
+    &quot;title&quot;: &quot;Example torrent&quot;,
+    &quot;description&quot;: &quot;## Some torrent title\n\nSome torrent text.\n\n---&quot;,
+    &quot;category_id&quot;: 1,
+    &quot;upload_date&quot;: 1631046870,
+    &quot;file_size&quot;: 15653809,
+    &quot;seeders&quot;: 0,
+    &quot;leechers&quot;: 0,
+    &quot;files&quot;: null
+  }
+}
+</code></pre>
+<ul>
+<li>On error: Standard error, see <a href="./#errors">Errors</a></li>
+</ul>
+<hr />
+<h2 id="category">Category</h2>
+<h3 id="get-category"><code>GET /category</code></h3>
+<p>Get a list of existing categories.</p>
+<p><strong>Response</strong>:</p>
+<ul>
+<li>On success: Status <code>200</code>.</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;name&quot;: &quot;app&quot;,
+      &quot;num_torrents&quot;: 0
+    },
+    {
+      &quot;name&quot;: &quot;documentary&quot;,
+      &quot;num_torrents&quot;: 0
+    },
+    {
+      &quot;name&quot;: &quot;game&quot;,
+      &quot;num_torrents&quot;: 0
+    },
+    {
+      &quot;name&quot;: &quot;movie&quot;,
+      &quot;num_torrents&quot;: 1
+    },
+    {
+      &quot;name&quot;: &quot;music&quot;,
+      &quot;num_torrents&quot;: 0
+    },
+    {
+      &quot;name&quot;: &quot;other&quot;,
+      &quot;num_torrents&quot;: 0
+    },
+    {
+      &quot;name&quot;: &quot;tv show&quot;,
+      &quot;num_torrents&quot;: 0
+    }
+  ]
+}
+</code></pre>
+<ul>
+<li>On error: Standard error, see <a href="./#errors">Errors</a></li>
+</ul>
+<hr />
+<h2 id="user">User</h2>
+<h3 id="post-userregister"><code>POST /user/register</code></h3>
+<p>Register (sign-up) a new user account.</p>
+<p><code>Example: POST /user/register</code></p>
+<p><strong>Body</strong>:</p>
+<pre><code class="language-json">{
+  &quot;email&quot;: &quot;email@example.com&quot;,
+  &quot;username&quot;: &quot;example_user&quot;,
+  &quot;password&quot;: &quot;password&quot;,
+  &quot;confirm_password&quot;: &quot;password&quot;
+}
+</code></pre>
+<p><strong>Response</strong>:</p>
+<ul>
+<li>On success: Status <code>200</code>, with an empty body.</li>
+<li>On error: Standard error, see <a href="./#errors">Errors</a></li>
+</ul>
+<hr />
+<h3 id="post-userlogin"><code>POST /user/login</code></h3>
+<p>Login into an existing account.</p>
+<p><strong>Fields</strong>:</p>
+<ul>
+<li><code>login</code>: Either the email or username of the account</li>
+<li><code>password</code>: password of the account</li>
+</ul>
+<p><code>Example: POST /user/login</code></p>
+<p><strong>Body</strong>:</p>
+<pre><code class="language-json">{
+  &quot;login&quot;: &quot;email@example.com&quot;,
+  &quot;password&quot;: &quot;password&quot;
+}
+</code></pre>
+<p><strong>Response</strong>:</p>
+<ul>
+<li>On success: Status <code>200</code>.</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;token&quot;: &quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJleGFtcGxlX3VzZXIiLCJleHAiOjE2MzIyNTQxNjZ9.kyugZXiR88q4n6Ze44HonazDp-sJdq886te9-XHthHg&quot;,
+    &quot;username&quot;: &quot;example_user&quot;
+  }
+}
+</code></pre>
+<ul>
+<li>On error: Standard error, see <a href="./#errors">Errors</a></li>
+</ul>
+<hr />
+<h3 id="get-userverifytoken"><code>GET /user/verify/&lt;token&gt;</code></h3>
+<p>Email verification handler.</p>
+<p>On register an email is sent to the email address of the registered account with a link to this route to verify their email address.</p>
+<p><code>Example: GET /user/verify/&lt;token&gt;</code></p>
+<p><strong>Response</strong>:</p>
+<ul>
+<li>On success: Status <code>200</code>.</li>
+</ul>
+<pre><code class="language-html">Email verified, you can close this page.
+</code></pre>
+<ul>
+<li>On error: Error message as a string.</li>
+</ul>
+<pre><code class="language-html">Token invalid.
+</code></pre>
+<hr />
+<h3 id="delete-userbanusername"><code>DELETE /user/ban/&lt;username&gt;</code></h3>
+<p>Ban users.</p>
+<p><code>Example: DELETE /user/verify/&lt;username&gt;</code>
+<strong>Response</strong>:</p>
+<ul>
+<li>On success: Status <code>200</code>.</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;User successfully banned!&quot;
+}
+</code></pre>
+<ul>
+<li>On error: Error message as a string.</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;Could not find user.&quot;
+}
+</code></pre>
+<hr />
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../config/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuration" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Configuration
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
