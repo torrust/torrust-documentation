@@ -1,21 +1,27 @@
-# REST API
+# Index REST API
+
 > This page is heavy WIP and missing a lot of endpoints from the newest torrust-index.
+
 ## Authorization
+
 Some routes can only be accessed by logged in users.
 For these routes you have to send the token obtained in [/user/login](api.md#login) in the `Authorization` header as a bearer token.
-<br><br>
+
 For example:
+
 ```http
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJleGFtcGxlX3VzZXIiLCJleHAiOjE2MzIyNTQxNjZ9.kyugZXiR88q4n6Ze44HonazDp-sJdq886te9-XHthHg
 ```
 
 ## Errors
+
 Every route always returns a non `2xx` status code for an error.
 If the error is caused by user input the status code will be in the `4xx` range.
 Unrecoverable server errors return a `500` status code.
 
 Every error contains a error message that is safe to display to an user.
 The body of an error _should_ always look like this:
+
 ```json
 {
   "error": "<error message>"
@@ -23,10 +29,12 @@ The body of an error _should_ always look like this:
 ```
 
 ## Torrent
+
 ### `GET /torrents`
+
 Get all torrent information of the listing with `id`, used for loading the data of the TorrentDetails page.
 
-__Optional query params__
+__Optional query params:__
 
 | Param      | Description                 | Value                                                                                                                                             | Example                        |
 |------------|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
@@ -34,8 +42,10 @@ __Optional query params__
 | search     | Search term.                | String.                                                                                                                                           | &search=bunny                  |
 | sort       | Sorting and sort direction. | `uploaded_ASC`, `uploaded_DESC`, `seeders_ASC`, `seeders_DESC`, `leechers_ASC`, `leechers_DESC`, `name_ASC`, `name_DESC`, `size_ASC`, `size_DESC` |&sort=size_DESC|
 
-__Response__:
+__Response:__
+
 - On success: Status `200`.
+
 ```json
 {
   "data": {
@@ -57,44 +67,55 @@ __Response__:
   }
 }
 ```
+
 ---
 
 ### `POST /torrent/upload`
+
 Upload a torrent file and create a torrent listing for it in the index.
 
-Consumes a __mutipart__ form with the fields:
+Consumes a __multipart__ form with the fields:
+
 - `title`: Title of the torrent listing.
 - `description`: A Markdown description.
 - `category`: Category this torrent fits in.
 - `torrent`: The torrent file itself.
 
-__Response__:
+__Response:__
+
 - On success: Status `200`, returns id of the newly created torrent listing.
+
 ```json
 {
-    "data": {
-        "torrent_id": 1
-    }
+  "data": {
+    "torrent_id": 1
+  }
 }
 ```
+
 - On error: Standard error, see [Errors](api.md#errors)
 
 ---
 
 ### `GET /torrent/download/<id>`
-Generate and download torrent file with a personal annouce URL for the authenticated user.
 
-__Response__:
-- On success: Status `200`, Personalised .torrent file stream.
+Generate and download torrent file with a personal announce URL for the authenticated user.
+
+__Response:__
+
+- On success: Status `200`, Personalized .torrent file stream.
 - On error: Standard error, see [Errors](api.md#errors)
 
 ---
 
 ### `GET /torrent/<id>`
+
 Get all torrent information of the listing with `id`, used for loading the data of the TorrentDetails page.
 
 __Response__:
+
 - On success: Status `200`.
+
 ```json
 {
   "data": {
@@ -112,16 +133,21 @@ __Response__:
   }
 }
 ```
+
 - On error: Standard error, see [Errors](api.md#errors)
 
 ---
 
 ## Category
+
 ### `GET /category`
+
 Get a list of existing categories.
 
 __Response__:
+
 - On success: Status `200`.
+
 ```json
 {
   "data": [
@@ -156,49 +182,61 @@ __Response__:
   ]
 }
 ```
+
 - On error: Standard error, see [Errors](api.md#errors)
 
 ---
 
 ## User
+
 ### `POST /user/register`
+
 Register (sign-up) a new user account.
 
 `Example: POST /user/register`
+
 __Body__:
-```json 
+
+```json
 {
-	"email": "email@example.com",
-	"username": "example_user",
-	"password": "password",
-	"confirm_password": "password"
+  "email": "email@example.com",
+  "username": "example_user",
+  "password": "password",
+  "confirm_password": "password"
 }
 ```
 
 __Response__:
+
 - On success: Status `200`, with an empty body.
 - On error: Standard error, see [Errors](api.md#errors)
 
 ---
+
 ### `POST /user/login`
+
 Login into an existing account.
 
 __Fields__:
+
 - `login`: Either the email or username of the account
 - `password`: password of the account
-  <br><br>
 
 `Example: POST /user/login`
+
 __Body__:
-```json 
+
+```json
 {
-	"login": "email@example.com",
-	"password": "password"
+  "login": "email@example.com",
+  "password": "password"
 }
 ```
 
 __Response__:
+
 - On success: Status `200`.
+
 ```json
 {
   "data": {
@@ -207,21 +245,29 @@ __Response__:
   }
 }
 ```
+
 - On error: Standard error, see [Errors](api.md#errors)
 
 ---
 
 ### `GET /user/verify/<token>`
-Email verification handler. <br>
+
+Email verification handler.
+
 On register an email is sent to the email address of the registered account with a link to this route to verify their email address.
 
 `Example: GET /user/verify/<token>`
+
 __Response__:
+
 - On success: Status `200`.
+
 ```html
 Email verified, you can close this page.
 ```
+
 - On error: Error message as a string.
+
 ```html
 Token invalid.
 ```
@@ -229,10 +275,12 @@ Token invalid.
 ---
 
 ### `DELETE /user/ban/<username>`
+
 Ban users.
 
 `Example: DELETE /user/verify/<username>`
 __Response__:
+
 - On success: Status `200`.
 
 ```json
@@ -240,6 +288,7 @@ __Response__:
   "message": "User successfully banned!"
 }
 ```
+
 - On error: Error message as a string.
 
 ```json
@@ -249,4 +298,3 @@ __Response__:
 ```
 
 ---
-
